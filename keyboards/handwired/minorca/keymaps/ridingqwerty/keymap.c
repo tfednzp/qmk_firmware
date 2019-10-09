@@ -17,8 +17,9 @@
 #include QMK_KEYBOARD_H
 #include "ridingqwerty.h"
 //#include "tapdance.c"
-#include "unicode.h"
+//#include "unicode.h"
 
+// FIXME
 /*                                                         MinOrca
         ┏━━━━━━━━┯━━━━━━━━┯━━━━━━━━┯━━━━━━━━┯━━━━━━━━┯━━━━━━━━┯━━━━━━━━┯━━━━━━━━┯━━━━━━━━┯━━━━━━━━┯━━━━━━━━┯━━━━━━━━┓
         ┃   ⎋    │   Q    │   W    │   E    │   R    │   T    │   Y    │   U    │   I    │   O    │   P    │  ❦ ⌫   ┃
@@ -31,39 +32,46 @@
         ┗━━━━━━━━━━┷━━━━━━━━━━┷━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━┷━━━━━━━━┷━━━━━━━━━━━━┛
 */
 
+#define LAYOUT( \
+    KA00, KA01, KA02, KA03, KA04, KA05, KA06, KA07, KA08, KA09, KA10, KA11, \
+    KB00,  KB01, KB02, KB03, KB04, KB05, KB06, KB07, KB08, KB09,    KB11,   \
+    KC00,    KC02, KC03, KC04, KC05, KC06, KC07, KC08, KC09, KC10,   KC11,  \
+    KD00,  KD02,  KD03,          KD04, KD07,           KD09,  KD10,  KD11   \
+) { \
+  {  KA00,  KA01,   KA02,  KA03,  KA04,  KA05,   KA06,   KA07,  KA08,   KA09,  KA10,   KA11  }, \
+  {  KB00,  KB01,   KB02,  KB03,  KB04,  KB05,   KB06,   KB07,  KB08,   KB09,  KC_NO,  KB11  }, \
+  {  KC00,  KC_NO,  KC02,  KC03,  KC04,  KC05,   KC06,   KC07,  KC08,   KC09,  KC10,   KC11  }, \
+  {  KD00,  KC_NO,  KD02,  KD03,  KD04,  KC_NO,  KC_NO,  KD07,  KC_NO,  KD09,  KD10,   KD11  } \
+}
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = {
+        {KC_GESC,  KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     SC(BSPC) }, 
+        {ED(TAB),  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     XXXXXXX,  NM(SCLN) }, 
+        {LS(QUOT), XXXXXXX,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  FK(DOT),  RS(SLSH) }, 
+        {LC(ESC),  XXXXXXX,  LG(LBRC), LA(RBRC), NM(BSPC), XXXXXXX,  XXXXXXX,  SM(SPC),  XXXXXXX,  RA(MINS), RG(EQL),  RC(ENT)  }
+/*
       //┌────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
-        {KC_GESC, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    SC_BSPC },
       //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┴────────┤
-      //{LT_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    XXXXXXX, LT_ENT  },
-        {LT_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    XXXXXXX, LT_ENT },
       //├────────┴────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┬────────┤
-        {MT_QUOT, XXXXXXX, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    LT_COMM, LT_DOT,  MT_SLSH },
       //├─────────────────┼────────┼────────┼────────┴────────┼────────┴────────┼────────┴────────┼────────┼────────┤
-        //{MT_LBRC, XXXXXXX, MT_LBRK, MT_LPRN, LT_SP1,  XXXXXXX, XXXXXXX, LT_SP2,  XXXXXXX, MT_RPRN, MT_RBRK, MT_RBRC }
-        {LC_ESC,  XXXXXXX, LG_LBRC, LA_RBRC, LT_SP1,  XXXXXXX, XXXXXXX, LT_SP2,  XXXXXXX, RA_MINS, RG_EQL,  RC_ENT  }
       //└─────────────────┴────────┴────────┴─────────────────┴─────────────────┴─────────────────┴────────┴────────┘
-      // KC_GESC											    LT_BSPC
-      // LT_TAB												    LT_ENT
-      // MT_QUOT								          LT_COMM, LT_DOT,  MT_SLSH
-// R4 // MT_LBRC,	   MT_LBRK, MT_LPRN, LT_SP1,                    LT_SP2,           MT_RPRN, MT_RBRK, MT_RBRC
-// R4 // LA_RBRC, LT_SP1,                    LT_SP2,           RA_MINS, RG_EQL, LG_LBRC
+*/
 
         
     },
 #ifdef UNICODE_H
     [_RUNE] = { 
-        {TD_ESC,  X(INGWZ), X(WUNJO),  X(EHWAZ), X(RAIDO), X(TIWAZ), X(IWAZ),  X(UR),    X(ISAZ),  X(ETHEL), X(PERTH), LT_BSPC },
-        //{LT_TAB,  X(ANSUZ), X(SOWIL),  X(DAGAZ), X(FE),    X(GEBO),  X(HAGLZ), X(JERAN), X(KAUNA), X(LAUKZ), XXXXXXX,  LT_ENT  },
-        {LT_TAB,  X(ANSUZ), X(SOWIL),  X(DAGAZ), X(FE),    X(GEBO),  X(HAGLZ), X(JERAN), X(KAUNA), X(LAUKZ), XXXXXXX,  LT_ENT  },
-        {MT_QUOT, XXXXXXX,  X(ALGIZ),  X(THURS), X(KAUNA), X(WUNJO), X(BEORC), X(NAUDZ), X(MANNZ), LT_COMM,  LT_DOT,   MT_SLSH },
-        {MT_LBRC, XXXXXXX,  MT_LBRK,   MT_LPRN,  LT_SP1,   XXXXXXX,  XXXXXXX,  LT_SP2,   XXXXXXX,  MT_RPRN,  MT_RBRK,  MT_RBRC }
+        {KC_ESC,  X(INGWZ), X(WUNJO),  X(EHWAZ), X(RAIDO), X(TIWAZ), X(IWAZ),  X(UR),    X(ISAZ),  X(ETHEL), X(PERTH), SC(BSPC) },
+        {ED(TAB), X(ANSUZ), X(SOWIL),  X(DAGAZ), X(FE),    X(GEBO),  X(HAGLZ), X(JERAN), X(KAUNA), X(LAUKZ), XXXXXXX,  NM(SCLN) },
+        {MT_QUOT, XXXXXXX,  X(ALGIZ),  X(THURS), X(KAUNA), X(WUNJO), X(BEORC), X(NAUDZ), X(MANNZ), KC_COMM,  FK(DOT),  RS(SLSH) },
+        {LC(ESC), XXXXXXX,  LG(LBRC),  LA(RBRC), NM(BSPC), XXXXXXX,  XXXXXXX,  SM(SPC),  XXXXXXX,  RA(MINS), RG(EQL),  RC(ENT)  }
     },
 #endif
     [_EDITOR] = {
       //┌────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
-        {_______, _______, _______, KC_END,  _______, KC_F5,   _______, _______, KC_INS,  _______, KC_PGUP, KC_DELT },
+        {KC_GRV,  _______, _______, KC_END,  _______, KC_F5,   _______, _______, KC_INS,  _______, KC_PGUP, KC_DELT },
       //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┴────────┤
         {_______, KC_HOME, _______, KC_DELT, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, KC_SCLN },
       //├────────┴────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┬────────┤
@@ -87,8 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //┌────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
         {KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DELT },
       //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┴────────┤
-      //{_______, _______, _______, _______, _______, TD_LBRC, TD_RBRC, _______, _______, _______, XXXXXXX, _______ },
-        {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX, _______ },
+        {_______, _______, _______, _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC, XXXXXXX, _______ },
       //├────────┴────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┬────────┤
         {_______, XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, _______, _______, _______, _______, KC_SCLN, KC_QUOT, KC_BSLS },
       //├─────────────────┼────────┼────────┼────────┴────────┼────────┴────────┼────────┴────────┼────────┼────────┤
@@ -110,10 +117,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #endif
     [_SECRET] = {
       //┌────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
-        {RESET,   _______, _______, _______, RUSTY,   FUEL,    _______, _______, _______, _______, _______, _______ },
+        {RESET,   _______, _______, _______, RUSTY,   FUEL,    _______, _______, _______, _______, VERSION, _______ },
       //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┴────────┤
-      //{_______, AR1ST,   _______, _______, _______, _______, _______, _______, _______, OS_LAB,  XXXXXXX, _______ },
-        {_______, AR1ST,   SYSNOC,  _______, _______, _______, _______, _______, _______, OS_LAB,  XXXXXXX, _______ },
+        {_______, AR1ST,   SYSNOC,  DEBUG,   FLAG,    _______, _______, _______, _______, OS_LAB,  XXXXXXX, MAKE    },
       //├────────┴────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┬────────┤
         {_______, XXXXXXX, _______, _______, C0RE,    VAXIS,   _______, _______, MUNKY,   _______, _______, _______ },
       //├─────────────────┼────────┼────────┼────────┴────────┼────────┴────────┼────────┴────────┼────────┼────────┤
@@ -209,6 +215,6 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
     return true;
 };
 
-void matrix_init_user(void) {
+void matrix_init_keymap(void) {
     set_unicode_input_mode(UC_LNX);
 }

@@ -11,7 +11,22 @@ bool process_record_secrets(uint16_t keycode, keyrecord_t *record);
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
 
 enum userspace_custom_keycodes {
-    FIRST = PLACEHOLDER_SAFE_RANGE,
+    VERSION = PLACEHOLDER_SAFE_RANGE,
+    QWERTY,
+    DVORAK,
+    COLEMAK,
+#ifdef UNICODEMAP_ENABLE
+    GREEK,
+    RUSSIAN,
+    HIRAGANA,
+    RUNES,
+#endif
+    MAKE,
+    FLAG,   // todo: reading/displaying mod status -- two keys maybe?
+    RG_QUOT,
+    TESTY,  // send whatever
+    GRIND,  // send command to repeatedly build (but not flash) keymap
+// do a secrets include guard here -- compactify/obsucre?
     RUSTY,
     FUEL,
     C0RE,
@@ -21,9 +36,6 @@ enum userspace_custom_keycodes {
     OS_LAB,
     CDLOCAL,
     SYSNOC,
-    RG_QUOT,
-    LAST
+// end secret include guard
+    NEW_SAFE_RANGE // start new keyboard-level declarations at NEW_SAFE_RANGE
 };
-
-bool process_record_secrets(uint16_t keycode, keyrecord_t *record);
-bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
