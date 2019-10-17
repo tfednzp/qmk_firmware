@@ -26,6 +26,7 @@ enum userspace_custom_keycodes {
     RG_QUOT,
     TESTY,  // send whatever
     GRIND,  // send command to repeatedly build (but not flash) keymap
+    CCCV,
 // do a secrets include guard here -- compactify/obsucre?
     RUSTY,
     FUEL,
