@@ -31,6 +31,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case QWERTY ... COLEMAK:
 #ifdef UNICODE_ENABLE
     case GREEK ... HIRAGANA:
+    //case GREEK ... RUNES:
 #endif
       if (record->event.pressed) {
         set_single_persistent_default_layer(keycode - QWERTY);
@@ -38,7 +39,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false; break;
     case MAKE:
       if (record->event.pressed) {
-	send_string_with_delay_P(PSTR("sleep 2 && "), MACRO_TIMER);
+	send_string_with_delay_P(PSTR("sleep 1 && "), MACRO_TIMER);
         send_string_with_delay_P(PSTR("make " QMK_KEYBOARD ":" QMK_KEYMAP), MACRO_TIMER);
 #if defined(__arm__)
         //send_string_with_delay_P(PSTR(":flash"), MACRO_TIMER);
@@ -96,6 +97,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	free(str);
 	// make CFLAGS+="-lc -specs=nosys.specs" board:keymap
 	*/
+      }
+      return false; break;
+    case CCCV:  // One key copy/paste
+      if (record->event.pressed) {
+        user_key_timer = timer_read();
+      } else {
+        if (timer_elapsed(user_key_timer) > TAPPING_TERM) {  // Hold, copy
+          register_code(KC_LCTL);
+          tap_code(KC_C);
+          unregister_code(KC_LCTL);
+        } else {  // Tap, paste
+          register_code(KC_LCTL);
+          tap_code(KC_V);
+          unregister_code(KC_LCTL);
+        }
       }
       return false; break;
   }

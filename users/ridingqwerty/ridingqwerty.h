@@ -29,18 +29,19 @@ enum userspace_layers
 /*
     _etc
 */
-#if defined(UNICODEMAP_ENABLE)
-    _RUNE,
-    _GREEK, //wip
+//#if defined(UNICODEMAP_ENABLE)
+#ifdef UNICODE_H
+    _GREEK,
     _RUSSIAN,
     _HIRAGANA,
+    _RUNES,
 #endif
     _EDITOR,
     _NUMBER,
     _SYMBOL,
     _F_KEYS,
-    _DEBUG,  // version,make,reset?
-    _SECRET, // roll secret into debug?
+    _DEBUG,
+    _SECRET,
 #if defined(MOUSEKEY_ENABLED)
     _MOUSE,
 #endif

@@ -6,29 +6,30 @@
 
 // TODO
 // -center alignment of text in half-row macros may hinder future editing
-//  -use set underscore prefix?
+//  -use set underscore prefix? 17 x "_" should work
+#define ___________VI_ARROWS______________                 KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 
 //      1......__2......__3......__4......__5......
-#define _________________QWERTY_L1_________________        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
-#define _________________QWERTY_L2_________________        KC_A,    KC_S,    KC_D,    KC_F,    KC_G
-#define _________________QWERTY_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
+#define ________________QWERTY_L1__________________        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
+#define ________________QWERTY_L2__________________        KC_A,    KC_S,    KC_D,    KC_F,    KC_G
+#define ________________QWERTY_L3__________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
 
-#define _________________QWERTY_R1_________________        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
-#define _________________QWERTY_R2_________________        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN
-#define _________________QWERTY_R3_________________        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
+#define ________________QWERTY_R1__________________        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
+#define ________________QWERTY_R2__________________        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN
+#define ________________QWERTY_R3__________________        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
 
 
-#define _________________ATREUS_L1_________________        _________________QWERTY_L1_________________
-#define _________________ATREUS_L2_________________        ED(A),   KC_S,    KC_D,    KC_F,    KC_G
-#define _________________ATREUS_L3_________________        LS(Z),   KC_X,    KC_C,    KC_V,    KC_B
+#define ________________ATREUS_L1__________________        ________________QWERTY_L1__________________
+#define ________________ATREUS_L2__________________        ED(A),   KC_S,    KC_D,    KC_F,    KC_G
+#define ________________ATREUS_L3__________________        LS(Z),   KC_X,    KC_C,    KC_V,    KC_B
 
-#define _________________ATREUS_R1_________________        _________________QWERTY_R1_________________
-#define _________________ATREUS_R2_________________        KC_H,    KC_J,    KC_K,    KC_L,    NM(SCLN)
-#define _________________ATREUS_R3_________________        KC_N,    KC_M,    KC_COMM, FK(DOT), RS(SLSH)
+#define ________________ATREUS_R1__________________        ________________QWERTY_R1__________________
+#define ________________ATREUS_R2__________________        KC_H,    KC_J,    KC_K,    KC_L,    NM(SCLN)
+#define ________________ATREUS_R3__________________        KC_N,    KC_M,    KC_COMM, FK(DOT), RS(SLSH)
 
 // not used
-#define ______________FNHOMEROW_L2_________________        C(KC_A), G(KC_S), A(KC_D), S(KC_F), KC_G,
-#define ______________FNHOMEROW_R2_________________        KC_H,    S(KC_J), A(KC_K), G(KC_L), C(SCLN)
+#define ________________FNHOMEROW_L2_______________        C(KC_A), G(KC_S), A(KC_D), S(KC_F), KC_G
+#define ________________FNHOMEROW_R2_______________        KC_H,    S(KC_J), A(KC_K), G(KC_L), C(SCLN)
 
 //#define ____THUMBS_R4___        ED(ESC), SC(TAB)
 #define ____THUMBS_R4___        ED(ESC), DB(TAB)
@@ -36,39 +37,39 @@
 #define ________________        _______, _______
 
 
-#define _________________COLEMAK_L1________________        KC_Q,    KC_W,    KC_F,    KC_P,    KC_G
-#define _________________COLEMAK_L2________________        KC_A,    KC_R,    KC_S,    KC_T,    KC_D
-#define _________________COLEMAK_L3________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
+#define ________________COLEMAK_L1_________________        KC_Q,    KC_W,    KC_F,    KC_P,    KC_G
+#define ________________COLEMAK_L2_________________        KC_A,    KC_R,    KC_S,    KC_T,    KC_D
+#define ________________COLEMAK_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
 
-#define _________________COLEMAK_R1________________        KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN
-#define _________________COLEMAK_R2________________        KC_H,    KC_N,    KC_E,    KC_I,    KC_O
-#define _________________COLEMAK_R3________________        KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLASH
-
-
-#define _________________DVORAK_L1_________________        KC_QUOT, KC_COMM, KC_DOT, KC_P,     KC_Y
-#define _________________DVORAK_L2_________________        KC_A,    KC_O,    KC_E,   KC_U,     KC_I
-#define _________________DVORAK_L3_________________        KC_SCLN, KC_Q,    KC_J,   KC_K,     KC_X
-
-#define _________________DVORAK_R1_________________        KC_F,    KC_G,    KC_C,    KC_R,    KC_L
-#define _________________DVORAK_R2_________________        KC_D,    KC_H,    KC_T,    KC_N,    KC_S
-#define _________________DVORAK_R3_________________        KC_B,    KC_M,    KC_W,    KC_V,    KC_Z
+#define ________________COLEMAK_R1_________________        KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN
+#define ________________COLEMAK_R2_________________        KC_H,    KC_N,    KC_E,    KC_I,    KC_O
+#define ________________COLEMAK_R3_________________        KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLASH
 
 
-#define _________________BOTTOM_L4_________________        LC(ESC), LG(TAB),  LA(LBRC), LS(RBRC), NM(BSPC)
-#define _________________BOTTOM_R4_________________        SM(SPC), RS(MINS), RA(EQL),  RG_QUOT,  RC(ENT)
+#define ________________DVORAK_L1__________________        KC_QUOT, KC_COMM, KC_DOT, KC_P,     KC_Y
+#define ________________DVORAK_L2__________________        KC_A,    KC_O,    KC_E,   KC_U,     KC_I
+#define ________________DVORAK_L3__________________        KC_SCLN, KC_Q,    KC_J,   KC_K,     KC_X
+
+#define ________________DVORAK_R1__________________        KC_F,    KC_G,    KC_C,    KC_R,    KC_L
+#define ________________DVORAK_R2__________________        KC_D,    KC_H,    KC_T,    KC_N,    KC_S
+#define ________________DVORAK_R3__________________        KC_B,    KC_M,    KC_W,    KC_V,    KC_Z
 
 
-#define _________________NUMROW_L1_________________        KC_1,    KC_2,    KC_3,    KC_4,    KC_5
-#define _________________NUMROW_R1_________________        KC_6,    KC_7,    KC_8,    KC_9,    KC_0
-
-#define _________________NUMPAD_R1_________________        -------, KC_7,    KC_8,    KC_9,    KC_0
-#define _________________NUMPAD_R2_________________        _______, KC_4,    KC_5,    KC_6,    _______
-#define _________________NUMPAD_R3_________________        _______, KC_1,    KC_2,    KC_3,    KC_BSLS
-#define _________________NUMPAD_R4_________________        KC_0,    KC_0,    KC_DOT,  KC_3,    _______ 
+#define ________________BOTTOM_L4__________________        LC(ESC), LG(TAB),  LA(LBRC), LS(RBRC), NM(BSPC)
+#define ________________BOTTOM_R4__________________        SM(SPC), RS(MINS), RA(EQL),  RG_QUOT,  RC(ENT)
 
 
-#define _________________SYMROW_L1_________________        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
-#define _________________SYMROW_R1_________________        KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN
+#define ________________NUMROW_L1__________________        KC_1,    KC_2,    KC_3,    KC_4,    KC_5
+#define ________________NUMROW_R1__________________        KC_6,    KC_7,    KC_8,    KC_9,    KC_0
+
+#define ________________NUMPAD_R1__________________        _______, KC_7,    KC_8,    KC_9,    KC_0
+#define ________________NUMPAD_R2__________________        _______, KC_4,    KC_5,    KC_6,    _______
+#define ________________NUMPAD_R3__________________        _______, KC_1,    KC_2,    KC_3,    KC_BSLS
+#define ________________NUMPAD_R4__________________        KC_0,    KC_0,    KC_DOT,  KC_3,    _______ 
+
+
+#define ________________SYMROW_L1__________________        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
+#define ________________SYMROW_R1__________________        KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN
 
 
 #define ________________                                   _______, _______                   
@@ -77,66 +78,84 @@
 #define ___________________________________________        _______, _______, _______, _______, _______
 #define ___________________________________________        _______, _______, _______, _______, _______
 #define ___________________________________________        _______, _______, _______, _______, _______
-#define ___________________BLANK___________________        ___________________________________________
-#define ___________________BLOCK___________________        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
+#define ________________BLANK______________________        ___________________________________________
+#define ________________BLOCK______________________        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
 
 
 #define ________________FKEYROW_L1_________________        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
 #define ________________FKEYROW_R1_________________        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10
 
 
-#define _________________EDITOR_L1_________________        KC_GRV,  _______, KC_END,  _______, KC_F5  
-#define _________________EDITOR_L2_________________        KC_HOME, _______, KC_DELT, _______, _______
-#define _________________EDITOR_L3_________________        _______, _______, _______, _______, _______
+#define ________________EDITOR_L1__________________        KC_GRV,  _______, KC_END,  _______, KC_F5  
+#define ________________EDITOR_L2__________________        KC_HOME, _______, KC_DELT, _______, _______
+#if defined(TAP_DANCE_ENABLE)
+#define ________________EDITOR_L3__________________        _______, _______, CCCV,    _______, TD_BRC
+#else
+#define ________________EDITOR_L3__________________        _______, _______, CCCV,    _______, _______
+#endif
 
-#define _________________EDITOR_R1_________________        _______, _______, KC_INS,  _______, KC_PGUP
-#define _________________EDITOR_R2_________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______
-#define _________________EDITOR_R3_________________        KC_PGDN, _______, _______, _______, KC_BSLS
+#define ________________EDITOR_R1__________________        _______, _______, KC_INS,  _______, KC_PGUP
 
+#define ________________EDITOR_R2__________________        ___________VI_ARROWS______________, _______
+//#define ________________EDITOR_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______
+#define ________________EDITOR_R3__________________        KC_PGDN, _______, _______, _______, KC_BSLS
+
+#define ________________DEBUG_L1___________________        RESET,   _______, EEP_RST, RESET,   _______
+#define ________________DEBUG_L2___________________        _______, _______, DEBUG,   _______, FLAG
+#define ________________DEBUG_L3___________________        _______, _______, _______, VERSION, _______
+#define ________________DEBUG_R1___________________        KC_F13,  ALPHA,   LBET,    TESTY,   _______
+#define ________________DEBUG_R2___________________        _______, _______, EEP_RST, RESET,   MAKE
+#ifdef UNICODE_H
+#define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, GREEK,   _______
+#else
+#define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, _______, _______
+#endif
+
+#define ________________SECRET_L1__________________        _______, _______, _______, RUSTY,   FUEL
+#define ________________SECRET_L2__________________        AR1ST,   SYSNOC,  _______, _______, _______
+#define ________________SECRET_L3__________________        CDLOCAL, _______, C0RE,    VAXIS,   _______
+#define ________________SECRET_R1__________________        _______, _______, _______, _______, _______
+#define ________________SECRET_R2__________________        _______, _______, _______, OS_LAB,  _______
+#define ________________SECRET_R3__________________        _______, _______, _______, _______, _______
 
 #ifdef UNICODE_H
 // Greek
-#define __________________GREEK_L1_________________        THETA,   OMEGA,   EPSLN,   RHO,     TAU
-#define __________________GREEK_L2_________________        ALPHA,   SIGMA,   DELTA,   PHI,     GAMMA
-#define __________________GREEK_L3_________________        ZETA,    XI,      CHI,     PHI,     BETA
-
-#define __________________GREEK_R1_________________        UPSLN,   UPSLN,   IOTA,    OMCRN,   PI
-#define __________________GREEK_R2_________________        ETA,     PSI,     KAPPA,   LAMBA,   KC_SCLN
-#define __________________GREEK_R3_________________        NU,      MU,      KC_COMM, KC_DOT,  KC_SLSH
+#define ________________GREEK_L1___________________        THETA,   OMEGA,   EPSLN,   RHO,     TAU
+#define ________________GREEK_L2___________________        ALPHA,   SIGMA,   DELTA,   PHI,     GAMMA
+#define ________________GREEK_L3___________________        ZETA,    XI,      CHI,     PHI,     BETA
+#define ________________GREEK_R1___________________        UPSLN,   UPSLN,   IOTA,    OMCRN,   PI
+#define ________________GREEK_R2___________________        ETA,     PSI,     KAPPA,   LAMBA,   KC_SCLN
+#define ________________GREEK_R3___________________        NU,      MU,      KC_COMM, KC_DOT,  KC_SLSH
 
 
 // Elder Futhark
-#define __________________FTHRK_L1_________________        INGWZ,   WUNJO,   EHWAZ,   RAIDO,   TIWAZ
-#define __________________FTHRK_L2_________________        ANSUZ,   SOWIL,   DAGAZ,   FE,      GEBO
-#define __________________FTHRK_L3_________________        ALGIZ,   THURS,   KAUNA,   WUNJO,   BEORC
-
-#define __________________FTHRK_R1_________________        IWAZ,    UR,      ISAZ,    ETHEL,   PERTH
-#define __________________FTHRK_R2_________________        HAGLZ,   JERAN,   KAUNA,   LAUKZ,   KC_SCLN
-#define __________________FTHRK_R3_________________        NAUDZ,   MANNZ,   KC_COMM, KC_DOT,  KC_SLSH
+#define ________________FTHRK_L1___________________        INGWZ,   WUNJO,   EHWAZ,   RAIDO,   TIWAZ
+#define ________________FTHRK_L2___________________        ANSUZ,   SOWIL,   DAGAZ,   FE,      GEBO
+#define ________________FTHRK_L3___________________        ALGIZ,   THURS,   KAUNA,   WUNJO,   BEORC
+#define ________________FTHRK_R1___________________        IWAZ,    UR,      ISAZ,    ETHEL,   PERTH
+#define ________________FTHRK_R2___________________        HAGLZ,   JERAN,   KAUNA,   LAUKZ,   KC_SCLN
+#define ________________FTHRK_R3___________________        NAUDZ,   MANNZ,   KC_COMM, KC_DOT,  KC_SLSH
 
 // Russian Cyrillic
 // 3 chars will have to go on R4
-#define __________________CYRLC_L1_________________        YA,      SCHA,    IE,      ER,       TE
-#define __________________CYRLC_L2_________________        AH,      ES,      DE,      EF,       GHE
-#define __________________CYRLC_L3_________________        ZE,      HA,      TSE,     VE,       BE
-
-#define __________________CYRLC_R1_________________        YERU,    UU,      IH,      OH,      PE
-#define __________________CYRLC_R2_________________        CHE,     SIH,     KA,      EL,      SOFT
-#define __________________CYRLC_R3_________________        EN,      EM,      YU,      SCHA,    EH
-#define __________________CYRLC_R4_________________        SM(SPC), IO,      HARD,    ZHE,     RC(ENT)
+#define ________________CYRLC_L1___________________        YA,      SCHA,    IE,      ER,       TE
+#define ________________CYRLC_L2___________________        AH,      ES,      DE,      EF,       GHE
+#define ________________CYRLC_L3___________________        ZE,      HA,      TSE,     VE,       BE
+#define ________________CYRLC_R1___________________        YERU,    UU,      IH,      OH,      PE
+#define ________________CYRLC_R2___________________        CHE,     SIH,     KA,      EL,      SOFT
+#define ________________CYRLC_R3___________________        EN,      EM,      YU,      SCHA,    EH
+#define ________________CYRLC_R4___________________        SM(SPC), IO,      HARD,    ZHE,     RC(ENT)
 
 // Hiragana (L/R issue?)
-#define ____________________JIS_R1_________________        JTA,     JTE,     JI,      JSU,     JKA,  
-#define ____________________JIS_R2_________________        JTI,     JTO,     JSI,     JHA,     JKI,  
-#define ____________________JIS_R3_________________        JTU,     JSA,     JSO,     JHI,     JKO,  
-
-#define ____________________JIS_L1_________________        JN,      JNA,     JNI,     JRA,     JSE,  
-#define ____________________JIS_L2_________________        JKU,     JMA,     JNO,     JRI,     JRE,  
-#define ____________________JIS_L3_________________        JMI,     JMO,     JNE,     JRU,     JME,  
+#define ________________JIS_R1_____________________        JTA,     JTE,     JI,      JSU,     JKA,  
+#define ________________JIS_R2_____________________        JTI,     JTO,     JSI,     JHA,     JKI,  
+#define ________________JIS_R3_____________________        JTU,     JSA,     JSO,     JHI,     JKO,  
+#define ________________JIS_L1_____________________        JN,      JNA,     JNI,     JRA,     JSE,  
+#define ________________JIS_L2_____________________        JKU,     JMA,     JNO,     JRI,     JRE,  
+#define ________________JIS_L3_____________________        JMI,     JMO,     JNE,     JRU,     JME,  
 
 #endif //UNICODE_H
 
-#define ___________VI_ARROWS______________                 KC_LEFT, KC_DOWN, KC,UP,   KC_RGHT
 
 //U+3040..U+309F
 /*
