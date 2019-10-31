@@ -29,9 +29,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false; break;
     case QWERTY ... COLEMAK:
-#ifdef UNICODE_ENABLE
-    case GREEK ... HIRAGANA:
-    //case GREEK ... RUNES:
+#ifdef UNICODEMAP_ENABLE
+    case GREEK ... RUNES:
 #endif
       if (record->event.pressed) {
         set_single_persistent_default_layer(keycode - QWERTY);
@@ -99,6 +98,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	*/
       }
       return false; break;
+    case NICE:  // One key copy/paste
+      if (record->event.pressed) {
+	// send_unicode_hex_string
+        //send_unicode_hex_string("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        /*send_unicode_hex_string("2588 2588 2588 2557 0020 0020 0020 2588 2588 2557 2588 2588 2557 0020 2588 2588 2588 2588 2588 2588 2557 2588 2588 2588 2588 2588 2588 2588 2557 000A");
+        send_unicode_hex_string("2588 2588 2588 2588 2557 0020 0020 2588 2588 2551 2588 2588 2551 2588 2588 2554 2550 2550 2550 2550 255D 2588 2588 2554 2550 2550 2550 2550 255D 000A");
+        send_unicode_hex_string("2588 2588 2554 2588 2588 2557 0020 2588 2588 2551 2588 2588 2551 2588 2588 2551 0020 0020 0020 0020 0020 2588 2588 2588 2588 2588 2557 0020 0020 000A");
+        send_unicode_hex_string("2588 2588 2551 255A 2588 2588 2557 2588 2588 2551 2588 2588 2551 2588 2588 2551 0020 0020 0020 0020 0020 2588 2588 2554 2550 2550 255D 0020 0020 000A");
+        send_unicode_hex_string("2588 2588 2551 0020 255A 2588 2588 2588 2588 2551 2588 2588 2551 255A 2588 2588 2588 2588 2588 2588 2557 2588 2588 2588 2588 2588 2588 2588 2557 000A");
+        send_unicode_hex_string("255A 2550 255D 0020 0020 255A 2550 2550 2550 255D 255A 2550 255D 0020 255A 2550 2550 2550 2550 2550 255D 255A 2550 2550 2550 2550 2550 2550 255D 000A 000A");*/
+        send_unicode_hex_string("2588 2588 2588 2557 2591 2591 2591 2588 2588 2557 2588 2588 2557 2591 2588 2588 2588 2588 2588 2588 2557 2588 2588 2588 2588 2588 2588 2588 2557 000A");
+        send_unicode_hex_string("2588 2588 2588 2588 2557 2591 2591 2588 2588 2551 2588 2588 2551 2588 2588 2554 2550 2550 2550 2550 255D 2588 2588 2554 2550 2550 2550 2550 255D 000A");
+        send_unicode_hex_string("2588 2588 2554 2588 2588 2557 2591 2588 2588 2551 2588 2588 2551 2588 2588 2551 2591 2591 2591 2591 2591 2588 2588 2588 2588 2588 2557 2591 2591 000A");
+        send_unicode_hex_string("2588 2588 2551 255A 2588 2588 2557 2588 2588 2551 2588 2588 2551 2588 2588 2551 2591 2591 2591 2591 2591 2588 2588 2554 2550 2550 255D 2591 2591 000A");
+        send_unicode_hex_string("2588 2588 2551 2591 255A 2588 2588 2588 2588 2551 2588 2588 2551 255A 2588 2588 2588 2588 2588 2588 2557 2588 2588 2588 2588 2588 2588 2588 2557 000A");
+        send_unicode_hex_string("255A 2550 255D 2591 2591 255A 2550 2550 2550 255D 255A 2550 255D 2591 255A 2550 2550 2550 2550 2550 255D 255A 2550 2550 2550 2550 2550 2550 255D 000A 000A");
+      }
+      return false; break;
     case CCCV:  // One key copy/paste
       if (record->event.pressed) {
         user_key_timer = timer_read();
@@ -114,6 +131,35 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
       }
       return false; break;
+    case TEST_LBRC:
+      if (record->event.pressed) {
+        uint8_t shifted = get_mods() & (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT));
+        if (shifted) {
+            uint8_t mods = get_mods();	
+            clear_mods();
+            tap_code(KC_LBRC);
+	    set_mods(mods);
+        } else {
+            //register_mods(MOD_LSFT);
+            //tap_code(KC_LBRC);
+            //unregister_mods(MOD_LSFT);
+            tap_code16(S(KC_LBRC));
+        }
+      }
+      return false; break;
+    case ALT_COMM:
+      if (record->event.pressed) {
+        uint8_t ralted = get_mods() & (MOD_BIT(KC_RALT));
+        if (ralted) {
+            uint8_t mods = get_mods();
+            clear_mods();
+            tap_code16(S(KC_COMM));
+            set_mods(mods);
+        } else {
+            tap_code(KC_COMM);
+        }
+      }
+      return false;
   }
   return process_record_keymap(keycode, record) &&
     process_record_secrets(keycode, record);

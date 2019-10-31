@@ -54,9 +54,13 @@
 #define ________________DVORAK_R2__________________        KC_D,    KC_H,    KC_T,    KC_N,    KC_S
 #define ________________DVORAK_R3__________________        KC_B,    KC_M,    KC_W,    KC_V,    KC_Z
 
-
+//#if defined(TAP_DANCE_ENABLE)
+//#define ________________BOTTOM_L4__________________        LC(ESC), LG(TAB),  LA(LBRC), LS(RBRC), TD_BSPC
+//#define ________________BOTTOM_R4__________________        TD_SPC,  RS(MINS), RA(EQL),  RG_QUOT,  RC(ENT)
+//#else
 #define ________________BOTTOM_L4__________________        LC(ESC), LG(TAB),  LA(LBRC), LS(RBRC), NM(BSPC)
 #define ________________BOTTOM_R4__________________        SM(SPC), RS(MINS), RA(EQL),  RG_QUOT,  RC(ENT)
+//#endif
 
 
 #define ________________NUMROW_L1__________________        KC_1,    KC_2,    KC_3,    KC_4,    KC_5
@@ -81,10 +85,8 @@
 #define ________________BLANK______________________        ___________________________________________
 #define ________________BLOCK______________________        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
 
-
 #define ________________FKEYROW_L1_________________        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
 #define ________________FKEYROW_R1_________________        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10
-
 
 #define ________________EDITOR_L1__________________        KC_GRV,  _______, KC_END,  _______, KC_F5  
 #define ________________EDITOR_L2__________________        KC_HOME, _______, KC_DELT, _______, _______
@@ -101,14 +103,17 @@
 #define ________________EDITOR_R3__________________        KC_PGDN, _______, _______, _______, KC_BSLS
 
 #define ________________DEBUG_L1___________________        RESET,   _______, EEP_RST, RESET,   _______
-#define ________________DEBUG_L2___________________        _______, _______, DEBUG,   _______, FLAG
-#define ________________DEBUG_L3___________________        _______, _______, _______, VERSION, _______
+#define ________________DEBUG_L2___________________        ALPHA,   GREEK,   DEBUG,   _______, FLAG
+#define ________________DEBUG_L3___________________        ALT_COMM, _______, _______, VERSION, TEST_LBRC
 #define ________________DEBUG_R1___________________        KC_F13,  ALPHA,   LBET,    TESTY,   _______
-#define ________________DEBUG_R2___________________        _______, _______, EEP_RST, RESET,   MAKE
-#ifdef UNICODE_H
+//#define ________________DEBUG_R2___________________        _______, _______, EEP_RST, RESET,   MAKE
+#define ________________DEBUG_R2___________________        NICE,    _______, EEP_RST, RESET,   MAKE
+//#ifdef UNICODE_H
+#if defined(UNICODEMAP_ENABLE)
 #define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, GREEK,   _______
+//#define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, ALPHA,   _______
 #else
-#define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, _______, _______
+#define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, LBET,    _______
 #endif
 
 #define ________________SECRET_L1__________________        _______, _______, _______, RUSTY,   FUEL
@@ -118,14 +123,17 @@
 #define ________________SECRET_R2__________________        _______, _______, _______, OS_LAB,  _______
 #define ________________SECRET_R3__________________        _______, _______, _______, _______, _______
 
+//#warning "unicode not yet included (wrappers)"
 #ifdef UNICODE_H
+#warning "unicode included (wrappers)"
 // Greek
 #define ________________GREEK_L1___________________        THETA,   OMEGA,   EPSLN,   RHO,     TAU
 #define ________________GREEK_L2___________________        ALPHA,   SIGMA,   DELTA,   PHI,     GAMMA
 #define ________________GREEK_L3___________________        ZETA,    XI,      CHI,     PHI,     BETA
 #define ________________GREEK_R1___________________        UPSLN,   UPSLN,   IOTA,    OMCRN,   PI
-#define ________________GREEK_R2___________________        ETA,     PSI,     KAPPA,   LAMBA,   KC_SCLN
-#define ________________GREEK_R3___________________        NU,      MU,      KC_COMM, KC_DOT,  KC_SLSH
+#define ________________GREEK_R2___________________        ETA,     PSI,     KAPPA,   LAMBD,   KC_SCLN
+#define ________________GREEK_R3___________________        NU,      GMU,     KC_COMM, KC_DOT,  KC_SLSH
+//#define ________________GREEK_R3___________________        NU,      MU,      _______, _______, _______,
 
 
 // Elder Futhark
@@ -187,3 +195,4 @@ KE け U+3051 '
 
 // QMK_KEYBOARD is def so perhaps we can conditially include languages based on that
 // extra stupid for several reasons but could be fun
+
