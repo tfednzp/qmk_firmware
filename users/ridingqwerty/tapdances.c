@@ -184,6 +184,45 @@ void braces_reset (qk_tap_dance_state_t *state, void *user_data) {
 
 }
 
+void bspace_finished (qk_tap_dance_state_t *state, void *user_data) {
+    if ((state->count == 1) && (!state->pressed)) {
+      tap_code(KC_BSPC);
+    } else {
+      register_code(KC_LSFT);
+    }
+}
+
+void bspace_reset (qk_tap_dance_state_t *state, void *user_data) {
+    unregister_code(KC_LSFT);
+}
+
+void space_finished (qk_tap_dance_state_t *state, void *user_data) {
+    if ((state->count == 1) && (!state->pressed)) {
+      tap_code(KC_SPC);
+    } else {
+      //register_code(KC_LSFT);
+      layer_on(_SYMBOL);
+    }
+}
+
+void space_reset (qk_tap_dance_state_t *state, void *user_data) {
+    //unregister_code(KC_LSFT);
+    layer_off(_SYMBOL);
+}
+
+
+/*
+    else {
+        uint8_t layer = biton32(layer_state);
+        if (layer == _QWERTY) {
+            layer_off(_QWERTY);
+            layer_on(_RUNE);
+        } else {
+            layer_off(_RUNE);
+            layer_on(_QWERTY);
+        }
+*/
+
 qk_tap_dance_action_t tap_dance_actions[] = {
     // Tap once for ESC, twice for Caps Lock
     //[TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS)
@@ -196,5 +235,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_LBRACE] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, lbrace_finished, lbrace_reset),
     [TD_RBRACE] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, rbrace_finished, rbrace_reset),
 */
-    [TD_BRACES] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, braces_finished, braces_reset)
+    [TD_BRACES] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, braces_finished, braces_reset),
+    [TD_BSPACE] = ACTION_TAP_DANCE_FN_ADVANCED_TIME (NULL, bspace_finished, bspace_reset, 90),
+    [TD_SPACE] = ACTION_TAP_DANCE_FN_ADVANCED_TIME (NULL, space_finished, space_reset, 90)
 };

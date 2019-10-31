@@ -7,9 +7,13 @@ __attribute__((weak))
 void matrix_init_keymap(void) {}
 
 void matrix_init_user(void) {
+    matrix_init_keymap();
+
 #if defined(UNICODE_ENABLE) || defined(UNICODEMAP_ENABLE)
     set_unicode_input_mode(UC_LNX);
 #endif
+
+    set_single_persistent_default_layer(_QWERTY);
 }
 
 __attribute__((weak))

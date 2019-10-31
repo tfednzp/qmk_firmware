@@ -46,7 +46,7 @@
   { K75, K74, K73, K72, K71, K70   }  \
 }
 
-#define ALPHA XP(UCM_LDEL, UCM_UDEL)
+//#define ALPHA XP(UCM_LDEL, UCM_UDEL)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_atreus_wrapper( /* Qwerty */
@@ -69,6 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 //#if defined(UNICODEMAP_ENABLE)
 #ifdef UNICODE_H
+//#ifdef UNICODEMAP_ENABLE
   [_GREEK] = LAYOUT_atreus_wrapper(
     ________________GREEK_L1___________________,                   ________________GREEK_R1___________________,
     ________________GREEK_L2___________________,                   ________________GREEK_R2___________________,
@@ -100,21 +101,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_F11,  KC_F12,  _______, _______, _______,                   KC_F11,  KC_F12,  _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
   ),
-  [_DEBUG] = LAYOUT_atreus( /* shhhh... */
-    RESET,   _______, EEP_RST, RESET,   _______,                   KC_F13,  ALPHA,   LBET,    TESTY,   _______,
-    _______, _______, DEBUG,   _______, FLAG,                      _______, _______, EEP_RST, RESET,   MAKE,
-//#if defined(UNICODEMAP_ENABLE)
-#ifdef UNICODE_H
-    _______, _______, _______, VERSION, _______,                   QWERTY,  DVORAK,  COLEMAK, GREEK,   _______,
-#else
-    _______, _______, _______, VERSION, _______,                   QWERTY,  DVORAK,  COLEMAK, _______, _______,
-#endif
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+  [_DEBUG] = LAYOUT_atreus_wrapper( /* shhhh... */
+    ________________DEBUG_L1___________________,                   ________________DEBUG_R1___________________,
+    ________________DEBUG_L2___________________,                   ________________DEBUG_R2___________________,
+    ________________DEBUG_L3___________________,                   ________________DEBUG_R3___________________,
+    _______, _______, _______, _______, _______, ________________, _______, _______, _______, _______, _______
   ),
-  // GREEK
-#if defined(TAP_DANCE_ENABLE)
-#endif
-  // move to passwords only
   [_SECRET] = LAYOUT_atreus( /* shhhh... */
     _______, _______, _______, RUSTY,   FUEL,                      _______, _______, _______, _______, _______,
     AR1ST,   SYSNOC,  _______, _______, _______,                   _______, _______, _______, OS_LAB,  _______,
@@ -122,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
   ),
   [_FINAL] = LAYOUT_atreus( /* . */
-    TESTY,   TESTY,   TESTY,   TESTY,   TESTY,                     _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, TESTY,                     _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______

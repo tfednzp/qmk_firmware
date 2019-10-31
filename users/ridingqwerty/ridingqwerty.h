@@ -29,8 +29,8 @@ enum userspace_layers
 /*
     _etc
 */
-//#if defined(UNICODEMAP_ENABLE)
-#ifdef UNICODE_H
+#if defined(UNICODEMAP_ENABLE)
+//#ifdef UNICODE_H
     _GREEK,
     _RUSSIAN,
     _HIRAGANA,
