@@ -27,9 +27,14 @@ enum userspace_custom_keycodes {
     TESTY,  // send whatever
     GRIND,  // send command to repeatedly build (but not flash) keymap
     NICE,
+    PGUPLK2,
     ALT_COMM,
-    TEST_LBRC,
+    ENT_QUO,
     CCCV,
+    BSPACE,
+    LISTEN,
+    SPONGEBOB,
+    AESTHETIC,
 // do a secrets include guard here -- compactify/obsucre?
     RUSTY,
     FUEL,

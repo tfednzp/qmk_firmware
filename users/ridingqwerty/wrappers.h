@@ -102,12 +102,14 @@
 //#define ________________EDITOR_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______
 #define ________________EDITOR_R3__________________        KC_PGDN, _______, _______, _______, KC_BSLS
 
-#define ________________DEBUG_L1___________________        RESET,   _______, EEP_RST, RESET,   _______
+
+#define ________________DEBUG_L1___________________        RESET,   _______, EEP_RST, RESET,   SPONGEBOB
 #define ________________DEBUG_L2___________________        ALPHA,   GREEK,   DEBUG,   _______, FLAG
-#define ________________DEBUG_L3___________________        ALT_COMM, _______, _______, VERSION, TEST_LBRC
-#define ________________DEBUG_R1___________________        KC_F13,  ALPHA,   LBET,    TESTY,   _______
+#define ________________DEBUG_L3___________________        _______, _______, KC_SCLN, VERSION, _______
+//#define ________________DEBUG_R1___________________        KC_F13,  ALPHA,   LBET,    TESTY,   _______
+#define ________________DEBUG_R1___________________        AESTHETIC,  ALPHA,   LBET,    TESTY,   _______
+#define ________________DEBUG_R2___________________        NICE,    LALT(LGUI(KC_NO)), EEP_RST, LISTEN,   MAKE
 //#define ________________DEBUG_R2___________________        _______, _______, EEP_RST, RESET,   MAKE
-#define ________________DEBUG_R2___________________        NICE,    _______, EEP_RST, RESET,   MAKE
 //#ifdef UNICODE_H
 #if defined(UNICODEMAP_ENABLE)
 #define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, GREEK,   _______
