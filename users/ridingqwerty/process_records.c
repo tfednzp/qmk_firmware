@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 #include "ridingqwerty.h"
 
 
@@ -13,58 +14,70 @@ bool process_record_secrets(uint16_t keycode, keyrecord_t *record) {
 }
 
 //uint32_t test_number = 12345;
-double test_number = 12.345;
 
-/*  // interesting thing in drashna's config
-  case KC_QWERTY ... KC_WORKMAN:
-     if (record->event.pressed) {
-         uint8_t mods = mod_config(get_mods()|get_oneshot_mods());
-         if (!mods) {
-             set_single_persistent_default_layer(keycode - KC_QWERTY);
-         } else if (mods & MOD_MASK_SHIFT) {
-             set_single_persistent_default_layer(keycode - KC_QWERTY + 4);
-         } else if (mods & MOD_MASK_CTRL) {
-             set_single_persistent_default_layer(keycode - KC_QWERTY + 8);
-         }
-     }
-     break;
-*/
+mode_config_t mode = {.all = 0U};
+
 
 float nocturne[][2] = SONG(NOCTURNE_OP_9_NO_1);
 
-bool aesthetic_mode = false;
-bool spongebob_mode = false;
-bool spongebob_case = false;
+bool randword_seed  = false;
 uint8_t user_mod_state;
-uint16_t user_key_timer;
+uint32_t user_key_timer;
+
+
+#include "dict.h"
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef CONSOLE_ENABLE
   //uprintf("KL: kc: %u, col: %u, row: %u, pressed: %u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed);
 #endif 
-  if (spongebob_mode) {
+  if (mode.spongebob) {
     switch(keycode) {
       case KC_A ... KC_Z:
       case ED(A):
       case LS(Z):
         if (record->event.pressed) {
-	  (spongebob_case ^= 1) == 0 ? tap_code16(S(keycode)) : tap_code(keycode);
+	  (mode.uppercase ^= 1) == 0 ? tap_code16(S(keycode)) : tap_code(keycode);
 	  return false;
         }
 	break;
     }
   } 
   
-  if (aesthetic_mode) {
+  if (mode.aesthetic) {
     switch(keycode) {
-      case KC_1 ... KC_0:
-      case KC_A ... KC_Z:
+#if defined(UNICODE_ENABLE) || defined(UNICODEMAP_ENABLE) || defined(UCIS_ENABLE)
       case ED(A):
-      case LS(Z):
-        if (record->event.pressed) {
+      case KC_A:
+	if (record->event.pressed) {
+          send_unicode_hex_string("039B");
+	  tap_code(KC_SPC);
+	}
+	return false; break;
+      case KC_E:
+	if (record->event.pressed) {
+	  send_unicode_hex_string("039E");
+	  tap_code(KC_SPC);
+	}
+	return false; break;
+#else
+      case ED(A):
+      case A:
+      case E:
+	if (record->event.pressed) {
 	  register_code(KC_LSFT);
 	  tap_code16(keycode);
 	  unregister_code(KC_LSFT);
+	  tap_code(KC_SPC);
+	}
+	return false; break;
+#endif
+      case KC_1 ... KC_0:
+      case KC_B ... KC_D:
+      case KC_F ... KC_Z:
+      case LS(Z):
+        if (record->event.pressed) {
+	  tap_code16(S(keycode));
 	  tap_code(KC_SPC);
         }
 	return false; break;
@@ -95,7 +108,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
 
     case QWERTY ... COLEMAK:
-#ifdef UNICODEMAP_ENABLE
+#if defined(UNICODE_ENABLE) || defined(UNICODEMAP_ENABLE) || defined(UCIS_ENABLE)
     case GREEK ... RUNES:
 #endif
       if (record->event.pressed) {
@@ -146,15 +159,40 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
+    case RANDWORD:
+      ;
+      if (randword_seed == false) {
+	randword_seed = true;
+        srand(timer_read32());
+      }
+      //uint8_t randseed = timer_read();
+      //srand(randseed);
+      //srand(timer_read());
+      uint16_t key = rand() % NUMBER_OF_WORDS;
+      if (record->event.pressed) {
+	send_string(dict[key]);
+	tap_code(KC_SPC);
+      }
+      return false; break;
+
     case RG_QUOT:
       if (record->event.pressed) {
-        user_key_timer = timer_read();
+#if defined(UNICODE_ENABLE) || defined(UNICODEMAP_ENABLE) || defined(UCIS_ENABLE)
+     	user_mod_state = get_mods() & MOD_MASK_ALT;
+	if (user_mod_state) {
+	  clear_mods();
+	  send_unicode_hex_string("00B0");
+	  set_mods(user_mod_state);
+	  return false;
+	}
+#endif
+        user_key_timer = timer_read32();
         layer_on(_NUMBER);
         register_mods(MOD_BIT(KC_RGUI));
       } else {
         unregister_mods(MOD_BIT(KC_RGUI));
         layer_off(_NUMBER);
-	if (timer_elapsed(user_key_timer) < TAPPING_TERM) {
+	if (timer_elapsed32(user_key_timer) < TAPPING_TERM) {
 	  tap_code(KC_QUOT);
 	}
       }
@@ -186,7 +224,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case NICE:  // One key copy/paste
+    case NICE: // s l o w
       if (record->event.pressed) {
         send_unicode_hex_string("2588 2588 2588 2557 2007 2007 2007 2588 2588 2557 2588 2588 2557 2007 2588 2588 2588 2588 2588 2588 2557 2588 2588 2588 2588 2588 2588 2588 2557 000A");
         send_unicode_hex_string("2588 2588 2588 2588 2557 2007 2007 2588 2588 2551 2588 2588 2551 2588 2588 2554 2550 2550 2550 2550 255D 2588 2588 2554 2550 2550 2550 2550 255D 000A");
@@ -199,9 +237,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case CCCV:  // One key copy/paste
       if (record->event.pressed) {
-        user_key_timer = timer_read();
+        user_key_timer = timer_read32();
       } else {
-        if (timer_elapsed(user_key_timer) > TAPPING_TERM) {  // Hold, copy
+        if (timer_elapsed32(user_key_timer) > TAPPING_TERM) {  // Hold, copy
           register_code(KC_LCTL);
           tap_code(KC_C);
           unregister_code(KC_LCTL);
@@ -213,15 +251,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
+    case SEED:
+      if (record->event.pressed) {
+	srand(timer_read32());
+      }
+      break;
+
     case SPONGEBOB:
       if (record->event.pressed) {
-        spongebob_mode ^= 1;
+        mode.spongebob ^= 1;
       }
       break;
 
     case AESTHETIC:
       if (record->event.pressed) {
-        aesthetic_mode ^= 1;
+        mode.aesthetic ^= 1;
       }
       break;
 

@@ -31,7 +31,6 @@
 #define ________________FNHOMEROW_L2_______________        C(KC_A), G(KC_S), A(KC_D), S(KC_F), KC_G
 #define ________________FNHOMEROW_R2_______________        KC_H,    S(KC_J), A(KC_K), G(KC_L), C(SCLN)
 
-//#define ____THUMBS_R4___        ED(ESC), SC(TAB)
 #define ____THUMBS_R4___        ED(ESC), DB(TAB)
 #define _____BLANK_R4___        _______, _______
 #define ________________        _______, _______
@@ -103,13 +102,11 @@
 #define ________________EDITOR_R3__________________        KC_PGDN, _______, _______, _______, KC_BSLS
 
 
-#define ________________DEBUG_L1___________________        RESET,   _______, EEP_RST, RESET,   SPONGEBOB
-#define ________________DEBUG_L2___________________        ALPHA,   GREEK,   DEBUG,   _______, FLAG
-#define ________________DEBUG_L3___________________        _______, _______, KC_SCLN, VERSION, _______
-//#define ________________DEBUG_R1___________________        KC_F13,  ALPHA,   LBET,    TESTY,   _______
+#define ________________DEBUG_L1___________________        RESET,   _______, SEED,    RANDWORD, SPONGEBOB
+#define ________________DEBUG_L2___________________        GREEK,   RUSSIAN, HIRAGAN, RUNES,   FLAG
+#define ________________DEBUG_L3___________________        _______, _______, _______, VERSION, _______
 #define ________________DEBUG_R1___________________        AESTHETIC,  ALPHA,   LBET,    TESTY,   _______
-#define ________________DEBUG_R2___________________        NICE,    LALT(LGUI(KC_NO)), EEP_RST, LISTEN,   MAKE
-//#define ________________DEBUG_R2___________________        _______, _______, EEP_RST, RESET,   MAKE
+#define ________________DEBUG_R2___________________        _______, _______, EEP_RST, RESET,   MAKE
 //#ifdef UNICODE_H
 #if defined(UNICODEMAP_ENABLE)
 #define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, GREEK,   _______
@@ -125,18 +122,14 @@
 #define ________________SECRET_R2__________________        _______, _______, _______, OS_LAB,  _______
 #define ________________SECRET_R3__________________        _______, _______, _______, _______, _______
 
-//#warning "unicode not yet included (wrappers)"
-#ifdef UNICODE_H
-#warning "unicode included (wrappers)"
+#if defined(UNICODEMAP_ENABLE)
 // Greek
 #define ________________GREEK_L1___________________        THETA,   OMEGA,   EPSLN,   RHO,     TAU
 #define ________________GREEK_L2___________________        ALPHA,   SIGMA,   DELTA,   PHI,     GAMMA
 #define ________________GREEK_L3___________________        ZETA,    XI,      CHI,     PHI,     BETA
 #define ________________GREEK_R1___________________        UPSLN,   UPSLN,   IOTA,    OMCRN,   PI
-#define ________________GREEK_R2___________________        ETA,     PSI,     KAPPA,   LAMBD,   KC_SCLN
-#define ________________GREEK_R3___________________        NU,      GMU,     KC_COMM, KC_DOT,  KC_SLSH
-//#define ________________GREEK_R3___________________        NU,      MU,      _______, _______, _______,
-
+#define ________________GREEK_R2___________________        ETA,     PSI,     KAPPA,   LAMBD,   NM(SCLN)
+#define ________________GREEK_R3___________________        NU,      GMU,     KC_COMM, FK(DOT), RS(SLSH)
 
 // Elder Futhark
 #define ________________FTHRK_L1___________________        INGWZ,   WUNJO,   EHWAZ,   RAIDO,   TIWAZ
@@ -147,24 +140,23 @@
 #define ________________FTHRK_R3___________________        NAUDZ,   MANNZ,   KC_COMM, KC_DOT,  KC_SLSH
 
 // Russian Cyrillic
-// 3 chars will have to go on R4
-#define ________________CYRLC_L1___________________        YA,      SCHA,    IE,      ER,       TE
-#define ________________CYRLC_L2___________________        AH,      ES,      DE,      EF,       GHE
-#define ________________CYRLC_L3___________________        ZE,      HA,      TSE,     VE,       BE
+#define ________________CYRLC_L1___________________        YA,      SCHA,    IE,      ER,      TE
+#define ________________CYRLC_L2___________________        AH,      ES,      DE,      EF,      GHE
+#define ________________CYRLC_L3___________________        ZE,      HA,      TSE,     VE,      BE
 #define ________________CYRLC_R1___________________        YERU,    UU,      IH,      OH,      PE
 #define ________________CYRLC_R2___________________        CHE,     SIH,     KA,      EL,      SOFT
 #define ________________CYRLC_R3___________________        EN,      EM,      YU,      SCHA,    EH
 #define ________________CYRLC_R4___________________        SM(SPC), IO,      HARD,    ZHE,     RC(ENT)
 
-// Hiragana (L/R issue?)
-#define ________________JIS_R1_____________________        JTA,     JTE,     JI,      JSU,     JKA,  
-#define ________________JIS_R2_____________________        JTI,     JTO,     JSI,     JHA,     JKI,  
-#define ________________JIS_R3_____________________        JTU,     JSA,     JSO,     JHI,     JKO,  
-#define ________________JIS_L1_____________________        JN,      JNA,     JNI,     JRA,     JSE,  
-#define ________________JIS_L2_____________________        JKU,     JMA,     JNO,     JRI,     JRE,  
-#define ________________JIS_L3_____________________        JMI,     JMO,     JNE,     JRU,     JME,  
+// Hiragana (incomplete)
+#define ________________JIS_R1_____________________        JTA,     JTE,     JI,      JSU,     JKA  
+#define ________________JIS_R2_____________________        JTI,     JTO,     JSI,     JHA,     JKI  
+#define ________________JIS_R3_____________________        JTU,     JSA,     JSO,     JHI,     JKO  
+#define ________________JIS_L1_____________________        JN,      JNA,     JNI,     JRA,     JSE  
+#define ________________JIS_L2_____________________        JKU,     JMA,     JNO,     JRI,     JRE  
+#define ________________JIS_L3_____________________        JMI,     JMO,     JNE,     JRU,     JME  
 
-#endif //UNICODE_H
+#endif
 
 
 //U+3040..U+309F
@@ -194,7 +186,3 @@ voiced ゛U+309B [
 semivoiced ゜U+309C ]
 KE け U+3051 '
 */
-
-// QMK_KEYBOARD is def so perhaps we can conditially include languages based on that
-// extra stupid for several reasons but could be fun
-

@@ -1,7 +1,7 @@
 SRC += ridingqwerty.c \
        process_records.c
 
-CONSOLE_ENABLE = yes
+CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
 UNICODE_ENABLE = no # "yes" in default keymap, blocking UNICODEMAP_ENABLE
 UNICODEMAP_ENABLE = yes

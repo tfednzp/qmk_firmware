@@ -15,27 +15,28 @@ enum userspace_custom_keycodes {
     QWERTY,
     DVORAK,
     COLEMAK,
-#ifdef UNICODEMAP_ENABLE
+#if defined(UNICODE_ENABLE) || defined(UNICODEMAP_ENABLE) || defined(UCIS_ENABLE)
     GREEK,
     RUSSIAN,
-    HIRAGANA,
+    HIRAGAN,
     RUNES,
 #endif
     MAKE,
-    FLAG,   // todo: reading/displaying mod status -- two keys maybe?
+    FLAG,
     RG_QUOT,
-    TESTY,  // send whatever
-    GRIND,  // send command to repeatedly build (but not flash) keymap
+    TESTY,
+    GRIND,
     NICE,
     PGUPLK2,
+    RANDWORD,
     ALT_COMM,
     ENT_QUO,
     CCCV,
     BSPACE,
     LISTEN,
+    SEED,
     SPONGEBOB,
     AESTHETIC,
-// do a secrets include guard here -- compactify/obsucre?
     RUSTY,
     FUEL,
     C0RE,
@@ -45,6 +46,17 @@ enum userspace_custom_keycodes {
     OS_LAB,
     CDLOCAL,
     SYSNOC,
-// end secret include guard
-    NEW_SAFE_RANGE // start new keyboard-level declarations at NEW_SAFE_RANGE
+    NEW_SAFE_RANGE // start new keyboard-level declarations with NEW_SAFE_RANGE
 };
+
+typedef union {
+    struct {
+        uint8_t aesthetic : 1,
+                spongebob : 1,
+                uppercase : 1,
+                unusued   : 5;
+    };
+    uint8_t all;
+} mode_config_t;
+
+extern mode_config_t mode;
