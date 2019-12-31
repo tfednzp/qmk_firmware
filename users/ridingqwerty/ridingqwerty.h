@@ -23,14 +23,15 @@ include:
 
 enum userspace_layers
 {
-    _QWERTY = 0,
+    _QWERTY,
     _DVORAK,
     _COLEMAK,
 /*
     _etc
 */
-#if defined(UNICODEMAP_ENABLE)
+//#if defined(UNICODEMAP_ENABLE)
 //#ifdef UNICODE_H
+#if defined(UNICODE_ENABLE) || defined(UNICODEMAP_ENABLE) || defined(UCIS_ENABLE)
     _GREEK,
     _RUSSIAN,
     _HIRAGANA,
