@@ -114,7 +114,7 @@
 #define ________________DEBUG_L1___________________        _______, _______, _______, RNGWORD, SARCASM
 #define ________________DEBUG_L2___________________        GREEK,   RUSSIAN, HIRAGAN, RUNES,   FLAG
 #define ________________DEBUG_L3___________________        _______, _______, _______, VERSION, _______
-#define ________________DEBUG_R1___________________        VAPORWV, ALPHA,   _______, TESTY,   _______
+#define ________________DEBUG_R1___________________        VAPORWV, STRAYA,  _______, TESTY,   _______
 #define ________________DEBUG_R2___________________        _______, _______, EEP_RST, RESET,   MAKE
 #if defined(UNICODEMAP_ENABLE)
 #define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, GREEK,   _______

@@ -108,7 +108,188 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
 	return false; break;
     }
+  }
+
+  if (mode.australia) {
+    switch(keycode) {
+      // WIP
+      // still need handling for backspace, space
+      // uppercase letters
+      // numbers
+      // symbols
+      // IDEMPOTENT
+      case KC_L:
+      case KC_O:
+      case KC_S:
+      case KC_Z:
+      case LS(Z):
+	if (record->event.pressed) {
+	  tap_code(keycode);
+	  tap_code(KC_LEFT);
+	}
+	return false;
+
+      // INVERTIBLE
+      case KC_B:
+	if (record->event.pressed) {
+	  tap_code(KC_Q);
+	  tap_code(KC_LEFT);
+	}
+	return false;
+      case KC_Q:
+	if (record->event.pressed) {
+	  tap_code(KC_B);
+	  tap_code(KC_LEFT);
+	}
+	return false;
+      case KC_D:
+	if (record->event.pressed) {
+	  tap_code(KC_P);
+	  tap_code(KC_LEFT);
+	}
+	return false;
+      case KC_P:
+	if (record->event.pressed) {
+	  tap_code(KC_D);
+	  tap_code(KC_LEFT);
+	}
+	return false;
+      case KC_N:
+	if (record->event.pressed) {
+	  tap_code(KC_U);
+	  tap_code(KC_LEFT);
+	}
+	return false;
+      case KC_U:
+	if (record->event.pressed) {
+	  tap_code(KC_N);
+	  tap_code(KC_LEFT);
+	}
+	return false;
+      
+      // TRANSLATE
+      case ED(A):
+      case KC_A:
+        if (record->event.pressed) {
+          send_unicode_hex_string("0250");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_C:
+        if (record->event.pressed) {
+          send_unicode_hex_string("0254");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_E:
+        if (record->event.pressed) {
+          send_unicode_hex_string("01DD");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_F:
+        if (record->event.pressed) {
+          send_unicode_hex_string("025F");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_G:
+        if (record->event.pressed) {
+          send_unicode_hex_string("0183");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_H:
+        if (record->event.pressed) {
+          send_unicode_hex_string("0265");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_I:
+        if (record->event.pressed) {
+          send_unicode_hex_string("1D09");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_J:
+        if (record->event.pressed) {
+          send_unicode_hex_string("027E");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_K:
+        if (record->event.pressed) {
+          send_unicode_hex_string("029E");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_M:
+        if (record->event.pressed) {
+          send_unicode_hex_string("026F");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_R:
+        if (record->event.pressed) {
+          send_unicode_hex_string("0279");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_T:
+        if (record->event.pressed) {
+          send_unicode_hex_string("0287");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_V:
+        if (record->event.pressed) {
+          send_unicode_hex_string("028C");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_W:
+        if (record->event.pressed) {
+          send_unicode_hex_string("028D");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_X:
+        if (record->event.pressed) {
+          send_unicode_hex_string("2717");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_Y:
+        if (record->event.pressed) {
+          send_unicode_hex_string("028E");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+
+      // TERMINATE
+      case KC_ENT:
+	tap_code(KC_END);
+	tap_code(KC_ENTER);
+	return false;
+    }
   } 
+ 
 
   switch(keycode) {
 
@@ -293,6 +474,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VAPORWV:
       if (record->event.pressed) {
         mode.aesthetic ^= 1;
+      }
+      break;
+
+    case STRAYA:
+      if (record->event.pressed) {
+        mode.australia ^= 1;
       }
       break;
 

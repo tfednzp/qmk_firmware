@@ -33,6 +33,7 @@ enum userspace_custom_keycodes {
     SEED,
     SARCASM,
     VAPORWV,
+    STRAYA,
     RUSTY,
     FUEL,
     C0RE,
@@ -50,7 +51,8 @@ typedef union {
         uint8_t aesthetic : 1,
                 spongebob : 1,
                 uppercase : 1,
-                unusued   : 5;
+                australia : 1,
+                unusued   : 4;
     };
     uint8_t all;
 } mode_config_t;
