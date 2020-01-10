@@ -1,11 +1,10 @@
-// considering 100 most common words
+// 100 or 100
 #define NUMBER_OF_WORDS 1000
 
-/*
+#if (NUMBER_OF_WORDS == 100)
 const char *dict[NUMBER_OF_WORDS] = { \
 "the", "be", "to", "of", "and", "a", "in", "that", "have", "I", "it", "for", "not", "on", "with", "he", "as", "you", "do", "at", "this", "but", "his", "by", "from", "they", "we", "say", "her", "she", "or", "an", "will", "my", "one", "all", "would", "there", "their", "what", "so", "up", "out", "if", "about", "who", "get", "which", "go", "me", "when", "make", "can", "like", "time", "no", "just", "him", "know", "take", "people", "into", "year", "your", "good", "some", "could", "them", "see", "other", "than", "then", "now", "look", "only", "come", "its", "over", "think", "also", "back", "after", "use", "two", "how", "our", "work", "first", "well", "way", "even", "new", "w ant", "because", "any", "these", "give", "day", "most", "us"};
-*/
-
+#elif (NUMBER_OF_WORDS == 1000)
 const char *dict[NUMBER_OF_WORDS] = { \
 "a", "ability", "able", "about", "above", "accept", "according", "account", "across", "act", "action", "activity", "actually", "add", "address", "administration", "admit", "adult", "affect", \
 "after", "again", "against", "age", "agency", "agent", "ago", "agree", "agreement", "ahead", "air", "all", "allow", "almost", "alone", "along", "already", "also", "although", "always", "American", \
@@ -61,3 +60,4 @@ const char *dict[NUMBER_OF_WORDS] = { \
 "white", "who", "whole", "whom", "whose", "why", "wide", "wife", "will", "win", "wind", "window", "wish", "with", "within", "without", "woman", "wonder", \
 "word", "work", "worker", "world", "worry", "would", "write", "writer", "wrong", "yard", "yeah", "year", "yes", "yet", "you", "young", "your", "yourself" \
 };
+#endif
