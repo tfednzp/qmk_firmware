@@ -284,8 +284,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
       // TERMINATE
       case KC_ENT:
-	tap_code(KC_END);
-	tap_code(KC_ENTER);
+      case RC(ENT):
+        if (record->event.pressed) {
+	  tap_code(KC_END);
+	  tap_code(KC_ENTER);
+	}
+	return false;
+
+      case KC_BSPC:
+      case NM(BSPC):
+        if (record->event.pressed) {
+	  tap_code(KC_DELT);
+	}
+	return false;
+
+      case KC_SPC:	
+      case SM(SPC):
+        if (record->event.pressed) {
+	  tap_code(KC_SPC);
+	  tap_code(KC_LEFT);
+	}
 	return false;
     }
   } 
