@@ -13,7 +13,8 @@ void matrix_init_user(void) {
     set_unicode_input_mode(UC_LNX);
 #endif
 
-    set_single_persistent_default_layer(_QWERTY);
+    //set_single_persistent_default_layer(_QWERTY);
+    default_layer_set(1U << _QWERTY);
 }
 
 __attribute__((weak))
@@ -48,3 +49,12 @@ layer_state_t	layer_state_set_user(layer_state_t state) {
     return state;
 }
 
+bool get_tapping_force_hold(uint16_t keycode) {
+  switch (keycode) {
+    case SFT_T(KC_SPC):
+    case NM(SCLN):
+      return true;
+    default:
+      return false;
+  }
+}

@@ -37,21 +37,29 @@
 
 
 #define ________________COLEMAK_L1_________________        KC_Q,    KC_W,    KC_F,    KC_P,    KC_G
-#define ________________COLEMAK_L2_________________        KC_A,    KC_R,    KC_S,    KC_T,    KC_D
-#define ________________COLEMAK_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
+//#define ________________COLEMAK_L2_________________        KC_A,    KC_R,    KC_S,    KC_T,    KC_D
+#define ________________COLEMAK_L2_________________        ED(A),   KC_R,    KC_S,    KC_T,    KC_D
+//#define ________________COLEMAK_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
+#define ________________COLEMAK_L3_________________        LS(Z),   KC_X,    KC_C,    KC_V,    KC_B
 
 #define ________________COLEMAK_R1_________________        KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN
-#define ________________COLEMAK_R2_________________        KC_H,    KC_N,    KC_E,    KC_I,    KC_O
-#define ________________COLEMAK_R3_________________        KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLASH
+//#define ________________COLEMAK_R2_________________        KC_H,    KC_N,    KC_E,    KC_I,    KC_O
+#define ________________COLEMAK_R2_________________        KC_H,    KC_N,    KC_E,    KC_I,    NM(O)
+//#define ________________COLEMAK_R3_________________        KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLASH
+#define ________________COLEMAK_R3_________________        KC_K,    KC_M,    KC_COMM, FK(DOT), RS(SLSH)
 
 
 #define ________________DVORAK_L1__________________        KC_QUOT, KC_COMM, KC_DOT, KC_P,     KC_Y
-#define ________________DVORAK_L2__________________        KC_A,    KC_O,    KC_E,   KC_U,     KC_I
-#define ________________DVORAK_L3__________________        KC_SCLN, KC_Q,    KC_J,   KC_K,     KC_X
+//#define ________________DVORAK_L2__________________        KC_A,    KC_O,    KC_E,   KC_U,     KC_I
+#define ________________DVORAK_L2__________________        ED(A),   KC_O,    KC_E,   KC_U,     KC_I
+//#define ________________DVORAK_L3__________________        KC_SCLN, KC_Q,    KC_J,   KC_K,     KC_X
+#define ________________DVORAK_L3__________________        LS(SCLN),KC_Q,    KC_J,   KC_K,     KC_X
 
 #define ________________DVORAK_R1__________________        KC_F,    KC_G,    KC_C,    KC_R,    KC_L
-#define ________________DVORAK_R2__________________        KC_D,    KC_H,    KC_T,    KC_N,    KC_S
-#define ________________DVORAK_R3__________________        KC_B,    KC_M,    KC_W,    KC_V,    KC_Z
+//#define ________________DVORAK_R2__________________        KC_D,    KC_H,    KC_T,    KC_N,    KC_S
+#define ________________DVORAK_R2__________________        KC_D,    KC_H,    KC_T,    KC_N,    NM(S)
+//#define ________________DVORAK_R3__________________        KC_B,    KC_M,    KC_W,    KC_V,    KC_Z
+#define ________________DVORAK_R3__________________        KC_B,    KC_M,    KC_W,    FK(V),   RS(Z)
 
 //#if defined(TAP_DANCE_ENABLE)
 //#define ________________BOTTOM_L4__________________        LC(ESC), LG(TAB),  LA(LBRC), LS(RBRC), TD_BSPC
@@ -83,6 +91,7 @@
 #define ___________________________________________        _______, _______, _______, _______, _______
 #define ________________BLANK______________________        ___________________________________________
 #define ________________BLOCK______________________        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
+#define XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX        ________________BLOCK______________________
 
 #define ________________FKEYROW_L1_________________        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
 #define ________________FKEYROW_R1_________________        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10
@@ -90,29 +99,27 @@
 #define ________________EDITOR_L1__________________        KC_GRV,  _______, KC_END,  _______, KC_F5  
 #define ________________EDITOR_L2__________________        KC_HOME, _______, KC_DELT, _______, _______
 #if defined(TAP_DANCE_ENABLE)
-#define ________________EDITOR_L3__________________        _______, _______, CCCV,    _______, TD_BRC
+//#define ________________EDITOR_L3__________________        KC_MUTE, KC_VOLD, KC_VOLU, CCCV,    TD_BRC
+#define ________________EDITOR_L3__________________        _______, KC_VOLD, KC_VOLU, CCCV,    TD_BRC
 #else
-#define ________________EDITOR_L3__________________        _______, _______, CCCV,    _______, _______
+#define ________________EDITOR_L3__________________        _______, KC_VOLD, KC_VOLU, CCCV,    _______
+#define ________________EDITOR_L3__________________        KC_MUTE, KC_VOLD, KC_VOLU, CCCV,    _______
 #endif
 
 #define ________________EDITOR_R1__________________        _______, _______, KC_INS,  _______, KC_PGUP
-
 #define ________________EDITOR_R2__________________        ___________VI_ARROWS______________, _______
-//#define ________________EDITOR_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______
 #define ________________EDITOR_R3__________________        KC_PGDN, _______, _______, _______, KC_BSLS
 
 
-#define ________________DEBUG_L1___________________        RESET,   _______, SEED,    RANDWORD, SPONGEBOB
+#define ________________DEBUG_L1___________________        _______, _______, _______, RNGWORD, SARCASM
 #define ________________DEBUG_L2___________________        GREEK,   RUSSIAN, HIRAGAN, RUNES,   FLAG
 #define ________________DEBUG_L3___________________        _______, _______, _______, VERSION, _______
-#define ________________DEBUG_R1___________________        AESTHETIC,  ALPHA,   LBET,    TESTY,   _______
+#define ________________DEBUG_R1___________________        VAPORWV, ALPHA,   _______, TESTY,   _______
 #define ________________DEBUG_R2___________________        _______, _______, EEP_RST, RESET,   MAKE
-//#ifdef UNICODE_H
 #if defined(UNICODEMAP_ENABLE)
 #define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, GREEK,   _______
-//#define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, ALPHA,   _______
 #else
-#define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, LBET,    _______
+#define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, _______, _______
 #endif
 
 #define ________________SECRET_L1__________________        _______, _______, _______, RUSTY,   FUEL
