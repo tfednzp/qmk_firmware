@@ -27,7 +27,7 @@ uint32_t user_key_timer;
 
 #include "dict.h"
 
-uint16_t alt_keymap[2][3] = {{KC_EXCLAIM, KC_A, KC_AMPR},{KC_1, KC_ASTR, KC_7}};
+uint16_t alt_keymap[2][] = {{KC_EXCLAIM, KC_A, KC_AMPR},{KC_1, KC_ASTR, KC_7}};
 //uint16_t alt_keymap[2][KEYS_N];
 //alt_keymap[0][] = { KC_EXCLAIM, KC_AT, KC_HASH };
 //alt_keymap[1][] = { KC_1, KC_2, KC_3 };
