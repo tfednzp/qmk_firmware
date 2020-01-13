@@ -27,7 +27,7 @@ uint32_t user_key_timer;
 
 #include "dict.h"
 
-uint16_t alt_keymap[2][] = {{KC_EXCLAIM, KC_A, KC_AMPR},{KC_1, KC_ASTR, KC_7}};
+//uint16_t alt_keymap[2][] = {{KC_EXCLAIM, KC_A, KC_AMPR},{KC_1, KC_ASTR, KC_7}};
 //uint16_t alt_keymap[2][KEYS_N];
 //alt_keymap[0][] = { KC_EXCLAIM, KC_AT, KC_HASH };
 //alt_keymap[1][] = { KC_1, KC_2, KC_3 };
@@ -115,13 +115,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       // WIP
       // still need handling for backspace, space
       // uppercase letters
-      // numbers
-      // symbols
+      // numbers -- ㄥϛㄣƐᄅƖ
       // IDEMPOTENT
+      // e.g. nothing changes, just output the usual char and KC_LEFT
+      // can probably just put all these in a default case
       case KC_L:
       case KC_O:
       case KC_S:
       case KC_Z:
+      case KC_8:
+      case KC_0:
       case LS(Z):
 	if (record->event.pressed) {
 	  tap_code(keycode);
@@ -129,7 +132,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	}
 	return false;
 
-      // INVERTIBLE
+      // INVERSE
       case KC_B:
 	if (record->event.pressed) {
 	  tap_code(KC_Q);
@@ -163,6 +166,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case KC_U:
 	if (record->event.pressed) {
 	  tap_code(KC_N);
+	  tap_code(KC_LEFT);
+	}
+	return false;
+      case KC_6:
+	if (record->event.pressed) {
+	  tap_code(KC_9);
+	  tap_code(KC_LEFT);
+	}
+	return false;
+      case KC_9:
+	if (record->event.pressed) {
+	  tap_code(KC_6);
 	  tap_code(KC_LEFT);
 	}
 	return false;
@@ -281,8 +296,49 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	  return false;
         }
 	break;
+      case KC_1:
+        if (record->event.pressed) {
+          send_unicode_hex_string("0269");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_2:
+        if (record->event.pressed) {
+          send_unicode_hex_string("3139");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_3:
+        if (record->event.pressed) {
+          send_unicode_hex_string("0190");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_4:
+        if (record->event.pressed) {
+          send_unicode_hex_string("3123");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_5:
+        if (record->event.pressed) {
+          send_unicode_hex_string("03DB");
+	  tap_code(KC_LEFT);
+	  return false;
+        }
+	break;
+      case KC_7:
+        if (record->event.pressed) {
+          send_unicode_hex_string("3125");
+	  tap_code(KC_LEFT);
+        }
+	return false;
 
-      // TERMINATE
+      // CONTROLS
       case KC_ENT:
       case RC(ENT):
         if (record->event.pressed) {
@@ -305,6 +361,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	  tap_code(KC_LEFT);
 	}
 	return false;
+
     }
   } 
  
