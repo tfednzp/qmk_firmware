@@ -67,6 +67,7 @@
 //#else
 #define ________________BOTTOM_L4__________________        LC(ESC), LG(TAB),  LA(LBRC), LS(RBRC), NM(BSPC)
 #define ________________BOTTOM_R4__________________        SM(SPC), RS(MINS), RA(EQL),  RG_QUOT,  RC(ENT)
+//#define ________________BOTTOM_R4__________________        SM(SPC), TT(_SYMBOL), OSM(MOD_LSFT),  RG_QUOT,  RC(ENT)
 //#endif
 
 
