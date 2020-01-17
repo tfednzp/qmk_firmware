@@ -49,9 +49,8 @@ layer_state_t	layer_state_set_user(layer_state_t state) {
     return state;
 }
 
-bool get_tapping_force_hold(uint16_t keycode) {
+bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case SFT_T(KC_SPC):
     case NM(SCLN):
       return true;
     default:
