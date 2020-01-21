@@ -1,6 +1,6 @@
 #include "ridingqwerty.h"
 #ifdef CONSOLE_ENABLE
-//#    include "printf.h"
+//#  include "printf.h"
 #endif
 
 __attribute__((weak))
@@ -20,7 +20,6 @@ void matrix_init_user(void) {
 __attribute__((weak))
 void matrix_scan_keymap(void) {
 }
-
 
 void matrix_scan_user(void) {
 

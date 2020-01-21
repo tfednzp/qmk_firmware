@@ -18,8 +18,8 @@ enum userspace_custom_keycodes {
 #if defined(UNICODE_ENABLE) || defined(UNICODEMAP_ENABLE)
     GREEK,
     RUSSIAN,
-    HIRAGAN,
     RUNES,
+    HIRAGAN,
 #endif
     MAKE,
     FLAG,

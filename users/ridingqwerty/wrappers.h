@@ -1,15 +1,12 @@
 #pragma once
 #include "ridingqwerty.h"
 
-#define LAYOUT_atreus_wrapper(...)		LAYOUT_atreus(__VA_ARGS__)
-#define LAYOUT_minorca_wrapper(...)		LAYOUT_minorca(__VA_ARGS__)
+#define LAYOUT_atreus_wrapper(...)  LAYOUT_atreus(__VA_ARGS__)
+#define LAYOUT_minorca_wrapper(...) LAYOUT_minorca(__VA_ARGS__)
 
-// TODO
-// -center alignment of text in half-row macros may hinder future editing
-//  -use set underscore prefix? 17 x "_" should work
 #define ___________VI_ARROWS______________                 KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 
-//      1......__2......__3......__4......__5......
+//      1......__2......__3......__4......__5......        1......__2......__3......__4......__5......
 #define ________________QWERTY_L1__________________        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
 #define ________________QWERTY_L2__________________        KC_A,    KC_S,    KC_D,    KC_F,    KC_G
 #define ________________QWERTY_L3__________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
@@ -76,16 +73,16 @@
 #define ________________NUMPAD_R1__________________        _______, KC_7,    KC_8,    KC_9,    KC_0
 #define ________________NUMPAD_R2__________________        _______, KC_4,    KC_5,    KC_6,    _______
 #define ________________NUMPAD_R3__________________        _______, KC_1,    KC_2,    KC_3,    KC_BSLS
-#define ________________NUMPAD_R4__________________        KC_0,    KC_0,    KC_DOT,  KC_3,    _______ 
+#define ________________NUMPAD_R4__________________        KC_0,    KC_0,    KC_DOT,  KC_3,    _______
 
 
 #define ________________SYMROW_L1__________________        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
 #define ________________SYMROW_R1__________________        KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN
 
 
-#define ________________                                   _______, _______                   
-#define _________________________                          _______, _______, _______          
-#define __________________________________                 _______, _______, _______, _______          
+#define ________________                                   _______, _______
+#define _________________________                          _______, _______, _______
+#define __________________________________                 _______, _______, _______, _______
 #define ___________________________________________        _______, _______, _______, _______, _______
 #define ___________________________________________        _______, _______, _______, _______, _______
 #define ___________________________________________        _______, _______, _______, _______, _______
@@ -99,11 +96,9 @@
 #define ________________EDITOR_L1__________________        KC_GRV,  _______, KC_END,  _______, KC_F5  
 #define ________________EDITOR_L2__________________        KC_HOME, _______, KC_DELT, _______, _______
 #if defined(TAP_DANCE_ENABLE)
-//#define ________________EDITOR_L3__________________        KC_MUTE, KC_VOLD, KC_VOLU, CCCV,    TD_BRC
 #define ________________EDITOR_L3__________________        _______, KC_VOLD, KC_VOLU, CCCV,    TD_BRC
 #else
 #define ________________EDITOR_L3__________________        _______, KC_VOLD, KC_VOLU, CCCV,    _______
-#define ________________EDITOR_L3__________________        KC_MUTE, KC_VOLD, KC_VOLU, CCCV,    _______
 #endif
 
 #define ________________EDITOR_R1__________________        _______, _______, KC_INS,  _______, KC_PGUP
@@ -116,11 +111,7 @@
 #define ________________DEBUG_L3___________________        _______, _______, _______, VERSION, _______
 #define ________________DEBUG_R1___________________        VAPORWV, STRAYA,  _______, TESTY,   _______
 #define ________________DEBUG_R2___________________        _______, _______, EEP_RST, RESET,   MAKE
-#if defined(UNICODEMAP_ENABLE)
-#define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, GREEK,   _______
-#else
 #define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, _______, _______
-#endif
 
 #define ________________SECRET_L1__________________        _______, _______, _______, RUSTY,   FUEL
 #define ________________SECRET_L2__________________        AR1ST,   SYSNOC,  _______, _______, _______
@@ -156,40 +147,19 @@
 #define ________________CYRLC_R4___________________        SM(SPC), IO,      HARD,    ZHE,     RC(ENT)
 
 // Hiragana (incomplete)
-#define ________________JIS_R1_____________________        JTA,     JTE,     JI,      JSU,     JKA  
-#define ________________JIS_R2_____________________        JTI,     JTO,     JSI,     JHA,     JKI  
-#define ________________JIS_R3_____________________        JTU,     JSA,     JSO,     JHI,     JKO  
-#define ________________JIS_L1_____________________        JN,      JNA,     JNI,     JRA,     JSE  
-#define ________________JIS_L2_____________________        JKU,     JMA,     JNO,     JRI,     JRE  
-#define ________________JIS_L3_____________________        JMI,     JMO,     JNE,     JRU,     JME  
+#define ________________JIS1_R1____________________        JTA,     JTE,     JI,      JSU,     JKA
+#define ________________JIS1_R2____________________        JTI,     JTO,     JSI,     JHA,     JKI
+#define ________________JIS1_R3____________________        JMI,     JMO,     KC_COMM, KC_DOT,  MO(_HIRA2)
+#define ________________JIS1_L1____________________        JN,      JNA,     JNI,     JRA,     JSE
+#define ________________JIS1_L2____________________        JKU,     JMA,     JNO,     JRI,     JRE
+#define ________________JIS1_L3____________________        JTU,     JSA,     JSO,     JHI,     JKO
+
+#define ________________JIS2_R1____________________        JRO,     JWA,     JNU,     JHU,     JA
+#define ________________JIS2_R2____________________        JYO,     JHO,     JHE,     JMU,     JVV
+#define ________________JIS2_R3____________________        JRU,     JME,     KC_COMM, KC_DOT,  _______
+#define ________________JIS2_L1____________________        JU,      JE,      JO,      JYA,     JYU
+#define ________________JIS2_L2____________________        JSV,     JKE,     JMI,     JMO,     JNE
+#define ________________JIS2_L3____________________        JTU,     JSA,     JSO,     JHI,     JKO
 
 #endif
 
-
-//U+3040..U+309F
-/*
-// below would need to be on a shift layer from base hiragana
-MI み U+307F N
-MO も U+3082 M
-NE ね U+306D ,
-RU る U+308B .
-ME め U+3081 /
-
-RO ろ U+308D `
-WA わ U+308F 0
-NU ぬ U+306C 1
-HU ふ U+3075 2
-A あ U+3042 3
-U う U+3046 4
-E え U+3048 5
-O お U+304A 6
-YA や U+3084 7
-YU ゆ U+3086 8
-YU よ U+3088 9
-HO ほ U+307B -
-HE へ U+3078 =
-MU む U+3080 return,bsls
-voiced ゛U+309B [
-semivoiced ゜U+309C ]
-KE け U+3051 '
-*/

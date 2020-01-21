@@ -42,13 +42,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case ED(A):
       case LS(Z):
         if (record->event.pressed) {
-	  (mode.uppercase ^= 1) == 0 ? tap_code16(S(keycode)) : tap_code(keycode);
-	  return false;
+          (mode.uppercase ^= 1) == 0 ? tap_code16(S(keycode)) : tap_code(keycode);
+          return false;
         }
-	break;
+        break;
     }
-  } 
-  
+  }
+
   if (mode.aesthetic) {
     switch(keycode) {
 #if defined(UNICODE_ENABLE) || defined(UNICODEMAP_ENABLE)
@@ -376,7 +376,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case QWERTY ... COLEMAK:
 #if defined(UNICODE_ENABLE) || defined(UNICODEMAP_ENABLE)
-    case GREEK ... RUNES:
+    case GREEK ... HIRAGAN:
 #endif
       if (record->event.pressed) {
         //set_single_persistent_default_layer(keycode - QWERTY);
@@ -475,9 +475,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       } else {
         unregister_mods(MOD_BIT(KC_RGUI));
         layer_off(_NUMBER);
-	if (timer_elapsed32(user_key_timer) < TAPPING_TERM) {
-	  tap_code(KC_QUOT);
-	}
+        if (timer_elapsed32(user_key_timer) < TAPPING_TERM) {
+          tap_code(KC_QUOT);
+        }
       }
       return false; break;
 
@@ -536,7 +536,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case SEED:
       if (record->event.pressed) {
-	srand(timer_read32());
+        srand(timer_read32());
       }
       break;
 

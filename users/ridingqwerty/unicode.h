@@ -1,9 +1,6 @@
 #pragma once
 #include "quantum.h"
 
-// XP() only seems to work with KC_LSFT -- not when part of LT()
-// doesn't seem to work with CAPS for me, but that's because it checks the led state, which I don't set
-
 #define FOREACH_UNICODE(M) \
     M(UALP,  0x0391) /* Α */ \
     M(UBET,  0x0392) /* Β */ \
@@ -213,9 +210,9 @@
     M(SHIN,  0x05E9) /* ש */ \
     M(TAV,   0x05EA) /* ת */
 
-#define UC_KEYCODE(name, code)  name = UC(code),	// LALP = UC(0x03B1),
+#define UC_KEYCODE(name, code)  name = UC(code),        // LALP = UC(0x03B1),
 
-#define UCM_NAME(name, code)    UCM_ ## name,		// UCM_LALP,
+#define UCM_NAME(name, code)    UCM_ ## name,           // UCM_LALP,
 #define UCM_ENTRY(name, code)   [UCM_ ## name] = code,  // [UCM_LALP] = 0x03B1,
 #define UCM_KEYCODE(name, code) name = X(UCM_ ## name), // LALP = X(UCM_LALP)
 

@@ -27,13 +27,14 @@ enum userspace_layers
     _DVORAK,
     _COLEMAK,
 /*
-    _etc
+    _WORKMAN, etc
 */
 #if defined(UNICODE_ENABLE) || defined(UNICODEMAP_ENABLE)
     _GREEK,
     _RUSSIAN,
-    _HIRAGANA,
     _RUNES,
+    _HIRA1,
+    _HIRA2,
 #endif
     _EDITOR,
     _NUMBER,
@@ -64,8 +65,8 @@ enum userspace_layers
 #define FK(kc) LT(_F_KEYS, KC_##kc)
 #define DB(kc) LT(_DEBUG,  KC_##kc)
 
-void	matrix_init_keymap(void);
-void	matrix_scan_keymap(void);
-void	matrix_scan_keymap(void);
-void	keyboard_post_init_keymap(void);
-layer_state_t	layer_state_set_keymap(layer_state_t state);
+void matrix_init_keymap(void);
+void matrix_scan_keymap(void);
+void matrix_scan_keymap(void);
+void keyboard_post_init_keymap(void);
+layer_state_t layer_state_set_keymap(layer_state_t state);
