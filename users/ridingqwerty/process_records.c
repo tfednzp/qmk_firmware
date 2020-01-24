@@ -15,6 +15,18 @@ bool process_record_secrets(uint16_t keycode, keyrecord_t *record) {
 
 //uint32_t test_number = 12345;
 
+/*
+typedef union {
+    struct {
+        uint8_t aesthetic : 1,
+                spongebob : 1,
+                uppercase : 1,
+                australia : 1,
+                unusued   : 4;
+    };
+    uint8_t all;
+} mode_config_t;
+*/
 mode_config_t mode = {.all = 0U};
 
 
@@ -35,7 +47,7 @@ uint32_t user_key_timer;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef CONSOLE_ENABLE
   //uprintf("KL: kc: %u, col: %u, row: %u, pressed: %u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed);
-#endif 
+#endif
   if (mode.spongebob) {
     switch(keycode) {
       case KC_A ... KC_Z:
@@ -54,10 +66,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #if defined(UNICODE_ENABLE) || defined(UNICODEMAP_ENABLE)
       case ED(A):
       case KC_A:
-	if (record->event.pressed) {
+        if (record->event.pressed) {
           send_unicode_hex_string("039B");
-	  tap_code(KC_SPC);
-	}
+          tap_code(KC_SPC);
+        }
 	return false; break;
       case KC_E:
 	if (record->event.pressed) {
@@ -386,11 +398,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case MAKE:
       if (record->event.pressed) {
-	user_mod_state = get_mods() & MOD_MASK_CTRL;
-	if (user_mod_state) {
-	  clear_mods();
-	  send_string_with_delay_P(PSTR("sleep 1 && "), MACRO_TIMER);
-	}
+        user_mod_state = get_mods() & MOD_MASK_CTRL;
+        if (user_mod_state) {
+          clear_mods();
+          send_string_with_delay_P(PSTR("sleep 1 && "), MACRO_TIMER);
+        }
         send_string_with_delay_P(PSTR("make " QMK_KEYBOARD ":" QMK_KEYMAP), MACRO_TIMER);
 	if (user_mod_state) {
 #if defined(__arm__)
@@ -461,13 +473,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case RG_QUOT:
       if (record->event.pressed) {
 #if defined(UNICODE_ENABLE) || defined(UNICODEMAP_ENABLE)
-     	user_mod_state = get_mods() & MOD_MASK_ALT;
-	if (user_mod_state) {
-	  clear_mods();
-	  send_unicode_hex_string("00B0");
-	  set_mods(user_mod_state);
-	  return false;
-	}
+        user_mod_state = get_mods() & MOD_MASK_ALT;
+        if (user_mod_state) {
+          clear_mods();
+          send_unicode_hex_string("00B0");
+          set_mods(user_mod_state);
+          return false;
+        }
 #endif
         user_key_timer = timer_read32();
         layer_on(_NUMBER);
@@ -483,14 +495,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case TESTY:
       if (record->event.pressed) {
-	user_mod_state = get_mods() & MOD_MASK_CTRL;
-	if (user_mod_state) {
-	  clear_mods();
-	  send_string_with_delay_P(PSTR("string1\n"), MACRO_TIMER);
-	  set_mods(user_mod_state);
-	} else {
-	  SEND_STRING("\\n");
-	}
+        user_mod_state = get_mods() & MOD_MASK_CTRL;
+        if (user_mod_state) {
+          clear_mods();
+          send_string_with_delay_P(PSTR("string1\n"), MACRO_TIMER);
+          set_mods(user_mod_state);
+      } else {
+          SEND_STRING("\\n");
+        }
       //tap_random_base64();
       //dprintf(" < that shit was random\n");
       //send_string(test_number);

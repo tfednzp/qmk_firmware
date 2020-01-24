@@ -1,15 +1,5 @@
 #pragma once
 
-/*
-include:
--libs:
--layers
--keymap function override declarations
--userspace config typedef
--conditional redefines
-*/
-
-
 #include "quantum.h"
 #include "version.h"
 #include "process_records.h"
