@@ -28,7 +28,8 @@
 #define ________________FNHOMEROW_L2_______________        C(KC_A), G(KC_S), A(KC_D), S(KC_F), KC_G
 #define ________________FNHOMEROW_R2_______________        KC_H,    S(KC_J), A(KC_K), G(KC_L), C(SCLN)
 
-#define ____THUMBS_R4___        ED(ESC), DB(TAB)
+//#define ____THUMBS_R4___        ED(ESC), DB(TAB)
+#define ____THUMBS_R4___        LT(_EDITOR, KC_ESC), DB(TAB)
 #define _____BLANK_R4___        _______, _______
 #define ________________        _______, _______
 
@@ -63,7 +64,8 @@
 //#define ________________BOTTOM_R4__________________        TD_SPC,  RS(MINS), RA(EQL),  RG_QUOT,  RC(ENT)
 //#else
 #define ________________BOTTOM_L4__________________        LC(ESC), LG(TAB),  LA(LBRC), LS(RBRC), NM(BSPC)
-#define ________________BOTTOM_R4__________________        SM(SPC), RS(MINS), RA(EQL),  RG_QUOT,  RC(ENT)
+//#define ________________BOTTOM_R4__________________        SM(SPC), RS(MINS), RA(EQL),  RG_QUOT,  RC(ENT)
+#define ________________BOTTOM_R4__________________        SM(SPC), RS(MINS), RA(EQL),  RG_QUOT,  MT(MOD_RCTL, KC_ENT)
 //#endif
 
 
@@ -106,7 +108,7 @@
 #define ________________EDITOR_R3__________________        KC_PGDN, _______, _______, _______, KC_BSLS
 
 
-#define ________________DEBUG_L1___________________        _______, _______, _______, RNGWORD, SARCASM
+#define ________________DEBUG_L1___________________        DEBUG,   _______, _______, RNGWORD, SARCASM
 #define ________________DEBUG_L2___________________        GREEK,   RUSSIAN, HIRAGAN, RUNES,   FLAG
 #define ________________DEBUG_L3___________________        _______, _______, _______, VERSION, _______
 #define ________________DEBUG_R1___________________        VAPORWV, STRAYA,  _______, TESTY,   _______
