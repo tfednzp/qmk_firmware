@@ -244,6 +244,20 @@ void space_reset (qk_tap_dance_state_t *state, void *user_data) {
         }
 */
 
+void shft_caps_finished (qk_tap_dance_state_t *state, void *user_data) {
+  if (state->count == 1) {
+    register_code(KC_LSFT);
+  } else if ((state->count == 2) && (state->interrupted || !state->pressed)) {
+    tap_code(KC_CAPS);
+  }
+}
+
+void shft_caps_reset (qk_tap_dance_state_t *state, void *user_data) {
+  if (state->count == 1) {
+    unregister_code(KC_LSFT);
+  }
+}
+
 qk_tap_dance_action_t tap_dance_actions[] = {
     // Tap once for ESC, twice for Caps Lock
     //[TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS)
@@ -259,5 +273,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_BRACES] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, braces_finished, braces_reset),
     [TD_BSPACE] = ACTION_TAP_DANCE_FN_ADVANCED_TIME (NULL, bspace_finished, bspace_reset, 90),
     [TD_SPACE] = ACTION_TAP_DANCE_FN_ADVANCED_TIME (NULL, space_finished, space_reset, 90),
-    [TD_PGUPLK] = ACTION_TAP_DANCE_FN_ADVANCED_TIME (NULL, pguplk_finished, NULL, 500)
+    [TD_PGUPLK] = ACTION_TAP_DANCE_FN_ADVANCED_TIME (NULL, pguplk_finished, NULL, 500),
+    [TD_SFT_CAPS] = ACTION_TAP_DANCE_FN_ADVANCED (NULL, shft_caps_finished, shft_caps_reset)
 };

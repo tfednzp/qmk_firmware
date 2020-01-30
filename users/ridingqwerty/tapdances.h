@@ -11,6 +11,7 @@
 #define TD_BSPC TD(TD_BSPACE)
 #define TD_SPC  TD(TD_SPACE)
 #define PGUPLK  TD(TD_PGUPLK)
+#define TD_SHFT TD(TD_SFT_CAPS)
 
 enum tapdance_id {
     TD_ESC_CAPS = 0,	// not used presently
@@ -22,5 +23,6 @@ enum tapdance_id {
     TD_BRACES,
     TD_BSPACE,
     TD_SPACE,
-    TD_PGUPLK
+    TD_PGUPLK,
+    TD_SFT_CAPS
 };

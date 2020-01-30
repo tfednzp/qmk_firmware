@@ -64,6 +64,7 @@
 //#define ________________BOTTOM_R4__________________        TD_SPC,  RS(MINS), RA(EQL),  RG_QUOT,  RC(ENT)
 //#else
 #define ________________BOTTOM_L4__________________        LC(ESC), LG(TAB),  LA(LBRC), LS(RBRC), NM(BSPC)
+//#define ________________BOTTOM_L4__________________        LC(ESC), LG(TAB),  LA(LBRC), TD_SHFT, NM(BSPC)
 //#define ________________BOTTOM_R4__________________        SM(SPC), RS(MINS), RA(EQL),  RG_QUOT,  RC(ENT)
 #define ________________BOTTOM_R4__________________        SM(SPC), RS(MINS), RA(EQL),  RG_QUOT,  MT(MOD_RCTL, KC_ENT)
 //#endif
