@@ -1,4 +1,3 @@
-// shamelessly cribbed from konstantin's userspace
 #include "unicode.h"
 
 #ifdef UNICODEMAP_ENABLE

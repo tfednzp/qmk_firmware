@@ -1,6 +1,7 @@
 #pragma once
 #include "ridingqwerty.h"
 
+// clang-format off
 #define LAYOUT_atreus_wrapper(...)  LAYOUT_atreus(__VA_ARGS__)
 #define LAYOUT_minorca_wrapper(...) LAYOUT_minorca(__VA_ARGS__)
 
@@ -24,50 +25,33 @@
 #define ________________ATREUS_R2__________________        KC_H,    KC_J,    KC_K,    KC_L,    NM(SCLN)
 #define ________________ATREUS_R3__________________        KC_N,    KC_M,    KC_COMM, FK(DOT), RS(SLSH)
 
-// not used
 #define ________________FNHOMEROW_L2_______________        C(KC_A), G(KC_S), A(KC_D), S(KC_F), KC_G
 #define ________________FNHOMEROW_R2_______________        KC_H,    S(KC_J), A(KC_K), G(KC_L), C(SCLN)
 
-//#define ____THUMBS_R4___        ED(ESC), DB(TAB)
-#define ____THUMBS_R4___        LT(_EDITOR, KC_ESC), DB(TAB)
+#define ____THUMBS_R4___        ED(ESC), DB(TAB)
 #define _____BLANK_R4___        _______, _______
 #define ________________        _______, _______
 
 
 #define ________________COLEMAK_L1_________________        KC_Q,    KC_W,    KC_F,    KC_P,    KC_G
-//#define ________________COLEMAK_L2_________________        KC_A,    KC_R,    KC_S,    KC_T,    KC_D
 #define ________________COLEMAK_L2_________________        ED(A),   KC_R,    KC_S,    KC_T,    KC_D
-//#define ________________COLEMAK_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
 #define ________________COLEMAK_L3_________________        LS(Z),   KC_X,    KC_C,    KC_V,    KC_B
 
 #define ________________COLEMAK_R1_________________        KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN
-//#define ________________COLEMAK_R2_________________        KC_H,    KC_N,    KC_E,    KC_I,    KC_O
 #define ________________COLEMAK_R2_________________        KC_H,    KC_N,    KC_E,    KC_I,    NM(O)
-//#define ________________COLEMAK_R3_________________        KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLASH
 #define ________________COLEMAK_R3_________________        KC_K,    KC_M,    KC_COMM, FK(DOT), RS(SLSH)
 
 
 #define ________________DVORAK_L1__________________        KC_QUOT, KC_COMM, KC_DOT, KC_P,     KC_Y
-//#define ________________DVORAK_L2__________________        KC_A,    KC_O,    KC_E,   KC_U,     KC_I
 #define ________________DVORAK_L2__________________        ED(A),   KC_O,    KC_E,   KC_U,     KC_I
-//#define ________________DVORAK_L3__________________        KC_SCLN, KC_Q,    KC_J,   KC_K,     KC_X
 #define ________________DVORAK_L3__________________        LS(SCLN),KC_Q,    KC_J,   KC_K,     KC_X
 
 #define ________________DVORAK_R1__________________        KC_F,    KC_G,    KC_C,    KC_R,    KC_L
-//#define ________________DVORAK_R2__________________        KC_D,    KC_H,    KC_T,    KC_N,    KC_S
 #define ________________DVORAK_R2__________________        KC_D,    KC_H,    KC_T,    KC_N,    NM(S)
-//#define ________________DVORAK_R3__________________        KC_B,    KC_M,    KC_W,    KC_V,    KC_Z
 #define ________________DVORAK_R3__________________        KC_B,    KC_M,    KC_W,    FK(V),   RS(Z)
 
-//#if defined(TAP_DANCE_ENABLE)
-//#define ________________BOTTOM_L4__________________        LC(ESC), LG(TAB),  LA(LBRC), LS(RBRC), TD_BSPC
-//#define ________________BOTTOM_R4__________________        TD_SPC,  RS(MINS), RA(EQL),  RG_QUOT,  RC(ENT)
-//#else
 #define ________________BOTTOM_L4__________________        LC(ESC), LG(TAB),  LA(LBRC), LS(RBRC), NM(BSPC)
-//#define ________________BOTTOM_L4__________________        LC(ESC), LG(TAB),  LA(LBRC), TD_SHFT, NM(BSPC)
-//#define ________________BOTTOM_R4__________________        SM(SPC), RS(MINS), RA(EQL),  RG_QUOT,  RC(ENT)
-#define ________________BOTTOM_R4__________________        SM(SPC), RS(MINS), RA(EQL),  RG_QUOT,  MT(MOD_RCTL, KC_ENT)
-//#endif
+#define ________________BOTTOM_R4__________________        SM(SPC), RS(MINS), RA(EQL),  RG_QUOT,  RC(ENT)
 
 
 #define ________________NUMROW_L1__________________        KC_1,    KC_2,    KC_3,    KC_4,    KC_5
@@ -110,18 +94,22 @@
 
 
 #define ________________DEBUG_L1___________________        DEBUG,   _______, _______, RNGWORD, SARCASM
-#define ________________DEBUG_L2___________________        GREEK,   RUSSIAN, HIRAGAN, RUNES,   FLAG
+#define ________________DEBUG_L2___________________        GREEK,   RUSSIAN, HIRAGAN, RUNES,   _______
 #define ________________DEBUG_L3___________________        _______, _______, _______, VERSION, _______
-#define ________________DEBUG_R1___________________        VAPORWV, STRAYA,  _______, TESTY,   _______
+
+#define ________________DEBUG_R1___________________        VPRWAVE, STRAYA,  _______, TESTING, _______
 #define ________________DEBUG_R2___________________        _______, _______, EEP_RST, RESET,   MAKE
 #define ________________DEBUG_R3___________________        QWERTY,  DVORAK,  COLEMAK, _______, _______
 
-#define ________________SECRET_L1__________________        _______, _______, _______, RUSTY,   FUEL
-#define ________________SECRET_L2__________________        AR1ST,   SYSNOC,  _______, _______, _______
-#define ________________SECRET_L3__________________        CDLOCAL, _______, C0RE,    VAXIS,   _______
+
+#define ________________SECRET_L1__________________        _______, _______, _______, SECRET0, SECRET1
+#define ________________SECRET_L2__________________        SECRET4, SECRET8, _______, _______, _______
+#define ________________SECRET_L3__________________        SECRET7, _______, SECRET2, SECRET5, _______
+
 #define ________________SECRET_R1__________________        _______, _______, _______, _______, _______
-#define ________________SECRET_R2__________________        _______, _______, _______, OS_LAB,  _______
-#define ________________SECRET_R3__________________        _______, _______, _______, _______, _______
+#define ________________SECRET_R2__________________        _______, _______, _______, SECRET6, _______
+#define ________________SECRET_R3__________________        _______, SECRET3, _______, _______, _______
+
 
 #if defined(UNICODEMAP_ENABLE)
 // Greek
@@ -149,7 +137,7 @@
 #define ________________CYRLC_R3___________________        EN,      EM,      YU,      SCHA,    EH
 #define ________________CYRLC_R4___________________        SM(SPC), IO,      HARD,    ZHE,     RC(ENT)
 
-// Hiragana (incomplete)
+// Hiragana
 #define ________________JIS1_R1____________________        JTA,     JTE,     JI,      JSU,     JKA
 #define ________________JIS1_R2____________________        JTI,     JTO,     JSI,     JHA,     JKI
 #define ________________JIS1_R3____________________        JMI,     JMO,     KC_COMM, KC_DOT,  MO(_HIRA2)
@@ -165,4 +153,4 @@
 #define ________________JIS2_L3____________________        JTU,     JSA,     JSO,     JHI,     JKO
 
 #endif
-
+// clang-format on

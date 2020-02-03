@@ -1,6 +1,7 @@
 #pragma once
 #include "quantum.h"
 
+// clang-format off
 #define FOREACH_UNICODE(M) \
     M(UALP,  0x0391) /* Α */ \
     M(UBET,  0x0392) /* Β */ \
@@ -209,6 +210,7 @@
     M(RESH,  0x05E8) /* ר */ \
     M(SHIN,  0x05E9) /* ש */ \
     M(TAV,   0x05EA) /* ת */
+// clang-format on
 
 #define UC_KEYCODE(name, code)  name = UC(code),        // LALP = UC(0x03B1),
 

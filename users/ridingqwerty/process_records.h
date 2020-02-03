@@ -22,39 +22,37 @@ enum userspace_custom_keycodes {
     HIRAGAN,
 #endif
     MAKE,
-    FLAG,
     RG_QUOT,
-    TESTY,
-    GRIND,
-    NICE,
+    TESTING,
     RNGWORD,
     CCCV,
-    LISTEN,
     SEED,
     SARCASM,
-    VAPORWV,
+    VPRWAVE,
     STRAYA,
-    RUSTY,
-    FUEL,
-    C0RE,
-    MUNKY,
-    AR1ST,
-    VAXIS,
-    OS_LAB,
-    CDLOCAL,
-    SYSNOC,
+    SECRET0,
+    SECRET1,
+    SECRET2,
+    SECRET3,
+    SECRET4,
+    SECRET5,
+    SECRET6,
+    SECRET7,
+    SECRET8,
     NEW_SAFE_RANGE // start new keyboard-level declarations with NEW_SAFE_RANGE
 };
 
+// clang-format off
 typedef union {
-    struct {
-        uint8_t aesthetic : 1,
-                spongebob : 1,
-                uppercase : 1,
-                australia : 1,
-                unusued   : 4;
-    };
-    uint8_t all;
+  struct {
+    uint8_t aesthetic : 1,
+            spongebob : 1,
+            uppercase : 1,
+            australia : 1,
+            unusued   : 4;
+  };
+  uint8_t all;
 } mode_config_t;
+// clang-format on
 
 extern mode_config_t mode;

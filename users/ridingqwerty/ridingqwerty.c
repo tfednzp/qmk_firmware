@@ -1,7 +1,4 @@
 #include "ridingqwerty.h"
-//#ifdef CONSOLE_ENABLE
-//#  include "printf.h"
-//#endif
 
 __attribute__((weak))
 void matrix_init_keymap(void) {}
@@ -22,10 +19,9 @@ void matrix_scan_keymap(void) {
 }
 
 void matrix_scan_user(void) {
-
+    // use for global event timers
 }
 
-/*
 __attribute__((weak))
 void keyboard_post_init_keymap(void) {}
 
@@ -37,7 +33,6 @@ void keyboard_post_init_user(void) {
     //debug_mouse=true;
 #endif
 }
-*/
 
 __attribute__((weak))
 layer_state_t   layer_state_set_keymap(layer_state_t state) { return state; }
@@ -52,11 +47,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 uint16_t get_tapping_term(uint16_t keycode) {
   switch (keycode) {
-    //case TD(TD_BRACES):
-    //case ED(ESC):
-    case MT(MOD_RCTL, KC_ENT):
-    case LT(_EDITOR, KC_ESC):
-      return 5000;
+    case RC(ENT):
+    case ED(ESC):
+      return 225;
     default:
       return TAPPING_TERM;
   }
