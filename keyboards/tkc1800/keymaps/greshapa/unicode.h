@@ -60,10 +60,12 @@ enum unicode_names {
 
 const uint32_t PROGMEM unicode_map[] = {
   [GE_LAE] = 0x00E4, // ä
+  [GE_LEE] = 0x00EB, // ë
   [GE_LOE] = 0x00F6, // ö
   [GE_LUE] = 0x00FC, // ü
   [GE_LSS] = 0x00DF, // ß
   [GE_UAE] = 0x00C4, // Ä
+  [GE_UEE] = 0x00CB, // Ë
   [GE_UOE] = 0x00D6, // Ö
   [GE_UUE] = 0x00DC, // Ü
   [GE_USS] = 0x1E9E, // ẞ
@@ -117,6 +119,7 @@ const uint32_t PROGMEM unicode_map[] = {
 };
 
 #define GE_AE XP(GE_LAE, GE_UAE)
+#define GE_EE XP(GE_LEE, GE_UEE)
 #define GE_OE XP(GE_LOE, GE_UOE)
 #define GE_UE XP(GE_LUE, GE_UUE)
 #define GE_SS XP(GE_LSS, GE_USS)
