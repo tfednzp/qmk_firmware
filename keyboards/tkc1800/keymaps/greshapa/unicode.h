@@ -2,10 +2,12 @@
 
 enum unicode_names {
   GE_LAE,
+  GE_LEE,
   GE_LOE,
   GE_LUE,
   GE_LSS,
   GE_UAE,
+  GE_UEE,
   GE_UOE,
   GE_UUE,
   GE_USS,
